@@ -1,0 +1,6 @@
+Quentin
+Servais
+HE201860
+Projet Aspects logique et programmation
+
+Créer un site ecommerce sur le hardware avec un panier interractif.  
