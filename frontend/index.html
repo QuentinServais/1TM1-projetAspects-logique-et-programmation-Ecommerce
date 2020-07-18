@@ -9,18 +9,46 @@
   <h1>Power Pc</h1>
   <h3>since 2020</h3>
   <div id="cpu">
-    <h3>CPU</h3>
+    <h3>Processeur</h3>
   <select id="selectCpu" name="selectCpu">
    <option value="I7 10700k">I7 10700k</option>
    <option value="I5 10600k">I5 10600k</option>
    <option value="R7 3700X">R7 3700X</option>
+   <option value="Threadripper 3990X">Threadripper 3990X</option>
   </select>
   <button onclick="selectCpu();">Sélectionner</button>
-  <div id="cpuBox"></div>
+  <div id="cpuBox"></div><br>
+  <img id="cpuIm" src="IMG/cpu.jpg" style="width:200px">
   </div>
   <br><br>
+  <h3>Carte Mère</h3>
   <div id="carteMere">
+  <select id="selectCM" name="selectCM">
+    <option value="Z490">MSI Z490</option>
+    <option value="TRX40">Gigabyte TRX40</option>
+    <option value="B550">ASRock B550</option>
+    <option value="B460">MSI B460</option>
+    <option value="X470">Asus X470</option>
+  </select>
+  <button onclick="selectCM();">Sélectionner</button>
+  <div id="cMBox"></div><br>
+  <img id="cMIm" src="IMG/cm.jpg" style="width:200px">
   </div>
+  <br><br>
+  <h3>RAM</h3>
+  <div id="rAM">
+  <select id="selectRAM" name="selectRAM">
+    <option value="r1">Corsair Vengeance 3600MHz 16Go</option>
+    <option value="r2">GSkill Trident Z 4000MHz 32Go</option>
+    <option value="r3">Crucial Ballistix 3000MHz 16Go</option>
+    <option value="r4">Corsair Vengeance 3000MHz 8Go</option>
+    <option value="r5">HyperX Fury 1600MHz 8Go</option>
+  </select>
+  <button onclick="selectRAM();">Sélectionner</button>
+  <div id="rAMBox"></div><br>
+  <img id="rAMIm" src="IMG/ram.jpg" style="width:200px">
+  </div>
+  <br><br>
   <button onclick="compatibilite();">Vérifier la compatibilité</button><br>
   <div id="rep"></div>
   <div id="panier">
