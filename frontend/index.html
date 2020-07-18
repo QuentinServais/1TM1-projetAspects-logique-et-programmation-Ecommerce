@@ -3,14 +3,26 @@
 <head>
     <meta charset=utf-8>
     <title>Power Pc</title>
+    <script src="JS/quentinServais.js"></script>
 </head>
 <body>
   <h1>Power Pc</h1>
   <h3>since 2020</h3>
   <div id="cpu">
     <h3>CPU</h3>
-  <a href="cpu.html">Choisir un processeur</a>
+  <select id="selectCpu" name="selectCpu">
+   <option value="I7 10700k">I7 10700k</option>
+   <option value="I5 10600k">I5 10600k</option>
+   <option value="R7 3700X">R7 3700X</option>
+  </select>
+  <button onclick="selectCpu();">Sélectionner</button>
+  <div id="cpuBox"></div>
   </div>
+  <br><br>
+  <div id="carteMere">
+  </div>
+  <button onclick="compatibilite();">Vérifier la compatibilité</button><br>
+  <div id="rep"></div>
   <div id="panier">
     <h3>Votre panier:</h3>
   </div>
