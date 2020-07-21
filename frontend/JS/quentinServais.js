@@ -6,7 +6,8 @@ let cpu = [
   fréquence: 5.1,
   prix: 550,
   points: 9,
-  image: "IMG/10700k.jpg"
+  image: "IMG/10700k.jpg",
+  tdp: 125
 },
     {
     marque: "Intel",
@@ -15,7 +16,8 @@ let cpu = [
     fréquence: 4.8,
     prix: 330,
     points: 7,
-    image: "IMG/10600k.jpg"
+    image: "IMG/10600k.jpg",
+    tdp: 125
 },
     {
       marque: "AMD",
@@ -24,7 +26,8 @@ let cpu = [
       fréquence: 4.4,
       prix: 350,
       points: 8,
-      image: "IMG/3700x.jpg"
+      image: "IMG/3700x.jpg",
+      tdp: 65
 },
 {
   marque: "AMD",
@@ -33,7 +36,8 @@ let cpu = [
   fréquence: 4.3,
   prix: 4700,
   points: 10,
-  image: "IMG/3990x.jpg"
+  image: "IMG/3990x.jpg",
+  tdp: 280
 }
 ];
 let carteMere = [
@@ -149,7 +153,8 @@ let gPU = [
     prix: 350,
     points: 6,
     id: "gpu1",
-    image: "IMG/gpu1.jpg"
+    image: "IMG/gpu1.jpg",
+    tdp: 160
   },
   {
     marque: "MSI",
@@ -159,7 +164,8 @@ let gPU = [
     prix: 170,
     points: 8,
     id: "gpu2",
-    image: "IMG/gpu2.jpg"
+    image: "IMG/gpu2.jpg",
+    tdp: 175
   },
   {
     marque: "Gigabyte",
@@ -169,7 +175,8 @@ let gPU = [
     prix: 330,
     points: 6,
     id: "gpu3",
-    image: "IMG/gpu3.jpg"
+    image: "IMG/gpu3.jpg",
+    tdp: 120
   },
   {
     marque: "MSI",
@@ -179,7 +186,8 @@ let gPU = [
     prix: 1550,
     points: 10,
     id: "gpu4",
-    image: "IMG/gpu4.jpg"
+    image: "IMG/gpu4.jpg",
+    tdp: 250
   },
   {
     marque: "ASRock",
@@ -189,13 +197,72 @@ let gPU = [
     prix: 480,
     points: 9,
     id: "gpu5",
-    image: "IMG/gpu5.jpg"
+    image: "IMG/gpu5.jpg",
+    tdp: 225
+  }
+];
+let pSU = [
+  {
+    marque: "Corsair",
+    model: "CV450",
+    watt: 450,
+    prix: 50,
+    certification: "80+ bronze",
+    modularité: "non-modulaire",
+    id: "psu1",
+    points: 5,
+    image: "IMG/psu1.jpg"
+  },
+  {
+    marque: "Corsair",
+    model: "CX550",
+    watt: 550,
+    prix: 85,
+    certification: "80+ bronze",
+    modularité: "semi-modulaire",
+    id: "psu2",
+    points: 6,
+    image: "IMG/psu2.jpg"
+  },
+  {
+    marque: "Seasonic",
+    model: "S12 650",
+    watt: 650,
+    prix: 80,
+    certification: "80+ bronze",
+    modularité: "non-modulaire",
+    id: "psu3",
+    points: 6,
+    image: "IMG/psu3.jpg"
+  },
+  {
+    marque: "Bequiet",
+    model: "700",
+    watt: 700,
+    prix: 105,
+    certification: "80+ bronze",
+    modularité: "semi-modulaire",
+    id: "psu4",
+    points: 7,
+    image: "IMG/psu4.jpg"
+  },
+  {
+    marque: "Corsair",
+    model: "HX1200",
+    watt: 1200,
+    prix: 270,
+    certification: "80+ platinum",
+    modularité: "modulaire",
+    id: "psu5",
+    points: 10,
+    image: "IMG/psu5.jpg"
   }
 ];
 let cpuChoisis;
 let cMChoisie;
 let rAMChoisie;
 let gpuChoisit;
+let pSUChoisit;
 
 function selectCpu(){
   cpuChoisis = document.getElementById("selectCpu").value;
@@ -241,11 +308,56 @@ function selectGPU(){
   }
 }
 
+function selectPSU(){
+  pSUChoisit = document.getElementById("selectPSU").value;
+  for(let i = 0; i < pSU.length; i++){
+    if(pSUChoisit == pSU[i].id){
+      pSUChoisit = pSU[i];
+      document.getElementById("PSUBox").innerHTML = "Vous avez choisi : " + pSUChoisit.marque + " " + pSUChoisit.model + " " + pSUChoisit.watt + "W" + " " + pSUChoisit.prix + "€";
+      document.getElementById("PSUIm").src= pSUChoisit.image;
+    }
+  }
+}
+
+
 function compatibilite(){
+  let securite = 80;
+  let tdpMax = securite + Number(gpuChoisit.tdp) + Number(cpuChoisis.tdp)
   if(cpuChoisis.socket == cMChoisie.socket){
-      document.getElementById("rep").innerHTML = "C'est compatible !";
+    if(rAMChoisie.type == "DDR4"){
+      if(pSUChoisit.watt >= tdpMax){
+        document.getElementById("rep").style.backgroundColor = "lightgreen";
+        document.getElementById("rep").innerHTML = "C'est compatible !";
+      }
+      else{
+        document.getElementById("rep").style.backgroundColor = "#dc143c";
+        document.getElementById("rep").innerHTML = "Attention Vous avez besoin d'une alimentation d'au moins " + tdpMax + " Watt!";
+      }
+    }
+    else{
+      document.getElementById("rep").style.backgroundColor = "#dc143c";
+      document.getElementById("rep").innerHTML = "Attention la RAM n'est pas compatible !";
+    }
+
   }
   else{
-    document.getElementById("rep").innerHTML = "Attention Ce n'est pas compatible !";
+    document.getElementById("rep").style.backgroundColor = "#dc143c";
+    document.getElementById("rep").innerHTML = "Attention le socket de la carte mère n'est pas compatible avec celui du processeur !";
   }
+}
+
+function evaluer(){
+  let totalPoints = 0;
+  let arr = [cpuChoisis.points, rAMChoisie.points, gpuChoisit.points, pSUChoisit.points];
+  let min = 10;
+  console.log(arr)
+  totalPoints = (cpuChoisis.points + rAMChoisie.points + gpuChoisit.points + pSUChoisit.points)/4;
+  document.getElementById("eval").innerHTML = "Votre configuration obtient le score de " + totalPoints;
+  for(let i = 0; i < arr.length; i++){
+    min = arr[0];
+    if(arr[i] < min){
+      min = arr[i];
+    }
+  }
+  document.getElementById("eval").innerHTML = "Vous pourriez améliorez :" + min;
 }
