@@ -1,0 +1,26 @@
+html {
+  font-family: verdana, sans-serif;
+}
+body {
+	background: url("../IMG/PowerPc.png");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-position-y: 0.5em;
+	background-color: #00c4cc;
+	position: center;
+}
+div#composants {
+  margin-top: 15em;
+}
+div#cpuBox {
+  text-align: center;
+}
+div#cMBox {
+  text-align: center;
+}
+div#rAMBox {
+  text-align: center;
+}
+div#GPUBox {
+  text-align: center;
+}

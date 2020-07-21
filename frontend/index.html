@@ -4,10 +4,10 @@
     <meta charset=utf-8>
     <title>Power Pc</title>
     <script src="JS/quentinServais.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/config.css">
 </head>
 <body>
-  <h1>Power Pc</h1>
-  <h3>since 2020</h3>
+  <div id="composants">
   <div id="cpu">
     <h3>Processeur</h3>
   <select id="selectCpu" name="selectCpu">
@@ -48,6 +48,21 @@
   <div id="rAMBox"></div><br>
   <img id="rAMIm" src="IMG/ram.jpg" style="width:200px">
   </div>
+  <br><br>
+  <h3>Carte Graphique</h3>
+  <div id="GPU">
+  <select id="selectGPU" name="selectGPU">
+    <option value="gpu1">EVGA RTX 2060 6Go</option>
+    <option value="gpu2">MSI RTX 2070 8Go</option>
+    <option value="gpu3">GTX 1660Ti 6Go</option>
+    <option value="gpu4">RTX 2080Ti 11Go</option>
+    <option value="gpu5">RX 5700XT 8Go</option>
+  </select>
+  <button onclick="selectGPU();">Sélectionner</button>
+  <div id="GPUBox"></div><br>
+  <img id="GPUIm" src="IMG/gpu.jpg" style="width:200px">
+  </div>
+</div>
   <br><br>
   <button onclick="compatibilite();">Vérifier la compatibilité</button><br>
   <div id="rep"></div>

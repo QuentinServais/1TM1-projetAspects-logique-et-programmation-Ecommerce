@@ -140,9 +140,62 @@ let rAM = [
     image: "IMG/r5.jpg"
   }
 ];
+let gPU = [
+  {
+    marque: "EVGA",
+    model: "RTX 2060",
+    fréquence: 1755,
+    memoire: 6,
+    prix: 350,
+    points: 6,
+    id: "gpu1",
+    image: "IMG/gpu1.jpg"
+  },
+  {
+    marque: "MSI",
+    model: "RTX 2070",
+    fréquence: 1620,
+    memoire: 8,
+    prix: 170,
+    points: 8,
+    id: "gpu2",
+    image: "IMG/gpu2.jpg"
+  },
+  {
+    marque: "Gigabyte",
+    model: "GTX 1660Ti",
+    fréquence: 1890,
+    memoire: 6,
+    prix: 330,
+    points: 6,
+    id: "gpu3",
+    image: "IMG/gpu3.jpg"
+  },
+  {
+    marque: "MSI",
+    model: "RTX 2080Ti",
+    fréquence: 1755,
+    memoire: 11,
+    prix: 1550,
+    points: 10,
+    id: "gpu4",
+    image: "IMG/gpu4.jpg"
+  },
+  {
+    marque: "ASRock",
+    model: "RX 5700XT",
+    fréquence: 2025,
+    memoire: 8,
+    prix: 480,
+    points: 9,
+    id: "gpu5",
+    image: "IMG/gpu5.jpg"
+  }
+];
 let cpuChoisis;
 let cMChoisie;
 let rAMChoisie;
+let gpuChoisit;
 
 function selectCpu(){
   cpuChoisis = document.getElementById("selectCpu").value;
@@ -173,6 +226,17 @@ function selectRAM(){
       document.getElementById("rAMBox").innerHTML = "Vous avez choisi : " + rAM[i].marque + " " + rAM[i].model + " " +  rAM[i].type + " " + rAM[i].fréquence + "MHz" + " " + rAM[i].taille + "Go " + rAM[i].prix + "€";
       rAMChoisie = rAM[i];
       document.getElementById("rAMIm").src= rAMChoisie.image;
+    }
+  }
+}
+
+function selectGPU(){
+  gpuChoisit = document.getElementById("selectGPU").value;
+  for(let i = 0; i < gPU.length; i++){
+    if(gpuChoisit == gPU[i].id){
+      document.getElementById("GPUBox").innerHTML = "Vous avez choisi : " + gPU[i].marque + " " + gPU[i].model + " " + gPU[i].fréquence + "MHz" + " " + gPU[i].memoire + "Go " + gPU[i].prix + "€";
+      gpuChoisit = gPU[i];
+      document.getElementById("GPUIm").src= gpuChoisit.image;
     }
   }
 }
