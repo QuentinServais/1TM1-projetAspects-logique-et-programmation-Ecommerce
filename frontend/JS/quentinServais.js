@@ -195,7 +195,7 @@ let gPU = [
     fréquence: 2025,
     memoire: 8,
     prix: 480,
-    points: 9,
+    points: 8,
     id: "gpu5",
     image: "IMG/gpu5.jpg",
     tdp: 225
@@ -268,7 +268,7 @@ function selectCpu(){
   cpuChoisis = document.getElementById("selectCpu").value;
   for(let i = 0; i < cpu.length; i++){
     if(cpuChoisis == cpu[i].model){
-      document.getElementById("cpuBox").innerHTML = "Vous avez choisi : " + cpu[i].marque + " " + cpu[i].model + " " + cpu[i].prix + "€";
+      document.getElementById("cpuBox").innerHTML = "Vous avez choisi : " + cpu[i].marque + " " + cpu[i].model + " Socket " + cpu[i].socket + " " + cpu[i].prix + "€";
       cpuChoisis = cpu[i];
       document.getElementById("cpuIm").src= cpuChoisis.image;
     }
@@ -279,7 +279,7 @@ function selectCM(){
   cMChoisie = document.getElementById("selectCM").value;
   for(let i = 0; i < carteMere.length; i++){
     if(cMChoisie == carteMere[i].model){
-      document.getElementById("cMBox").innerHTML = "Vous avez choisi : " + carteMere[i].marque + " " + carteMere[i].model + " " + carteMere[i].prix + "€";
+      document.getElementById("cMBox").innerHTML = "Vous avez choisi : " + carteMere[i].marque + " " + carteMere[i].model + " Socket " + carteMere[i].socket + " " + carteMere[i].prix + "€";
       cMChoisie = carteMere[i];
       document.getElementById("cMIm").src= cMChoisie.image;
     }
@@ -313,7 +313,7 @@ function selectPSU(){
   for(let i = 0; i < pSU.length; i++){
     if(pSUChoisit == pSU[i].id){
       pSUChoisit = pSU[i];
-      document.getElementById("PSUBox").innerHTML = "Vous avez choisi : " + pSUChoisit.marque + " " + pSUChoisit.model + " " + pSUChoisit.watt + "W" + " " + pSUChoisit.prix + "€";
+      document.getElementById("PSUBox").innerHTML = "Vous avez choisi : " + pSUChoisit.marque + " " + pSUChoisit.model + " " + pSUChoisit.watt + "W" + " certifiée " + pSUChoisit.certification + " " + pSUChoisit.prix + "€";
       document.getElementById("PSUIm").src= pSUChoisit.image;
     }
   }
@@ -321,10 +321,27 @@ function selectPSU(){
 
 
 function compatibilite(){
-  let securite = 80;
-  let tdpMax = securite + Number(gpuChoisit.tdp) + Number(cpuChoisis.tdp)
+  let securite = 100;
+  if(cpuChoisis == undefined || cMChoisie == undefined){
+    document.getElementById("rep").style.backgroundColor = "#dc143c";
+    document.getElementById("rep").innerHTML = "Veuillez choisir un processeur et une carte mère";
+  }
+  else{
   if(cpuChoisis.socket == cMChoisie.socket){
+    if(rAMChoisie == undefined){
+      document.getElementById("rep").style.backgroundColor = "#dc143c";
+      document.getElementById("rep").innerHTML = "Veuillez choisir un modèle de RAM!";
+    }
     if(rAMChoisie.type == "DDR4"){
+      if(gpuChoisit == undefined){
+        document.getElementById("rep").style.backgroundColor = "#dc143c";
+        document.getElementById("rep").innerHTML = "Veuillez choisir une carte graphique!";
+      }
+      let tdpMax = securite + Number(gpuChoisit.tdp) + Number(cpuChoisis.tdp);
+      if(pSUChoisit == undefined){
+        document.getElementById("rep").style.backgroundColor = "#dc143c";
+        document.getElementById("rep").innerHTML = "Veuillez choisir une alimentation!";
+      }
       if(pSUChoisit.watt >= tdpMax){
         document.getElementById("rep").style.backgroundColor = "lightgreen";
         document.getElementById("rep").innerHTML = "C'est compatible !";
@@ -344,20 +361,26 @@ function compatibilite(){
     document.getElementById("rep").style.backgroundColor = "#dc143c";
     document.getElementById("rep").innerHTML = "Attention le socket de la carte mère n'est pas compatible avec celui du processeur !";
   }
+  }
 }
 
 function evaluer(){
-  let totalPoints = 0;
-  let arr = [cpuChoisis.points, rAMChoisie.points, gpuChoisit.points, pSUChoisit.points];
+  let score = (cpuChoisis.points + rAMChoisie.points + gpuChoisit.points + pSUChoisit.points)/4;
+  let arrScore = [cpuChoisis.points, rAMChoisie.points, gpuChoisit.points, pSUChoisit.points];
+  let config = [cpuChoisis, rAMChoisie, gpuChoisit, pSUChoisit];
+  let ameliore = "";
   let min = 10;
-  console.log(arr)
-  totalPoints = (cpuChoisis.points + rAMChoisie.points + gpuChoisit.points + pSUChoisit.points)/4;
-  document.getElementById("eval").innerHTML = "Votre configuration obtient le score de " + totalPoints;
-  for(let i = 0; i < arr.length; i++){
-    min = arr[0];
-    if(arr[i] < min){
-      min = arr[i];
+  console.log(arrScore)
+  for(let i = 0; i < arrScore.length; i++){
+    if(arrScore[i] <= min){
+      min = arrScore[i];
+      ameliore = config[i].marque + " " + config[i].model
     }
   }
-  document.getElementById("eval").innerHTML = "Vous pourriez améliorez :" + min;
+  if(score == 10){
+    document.getElementById("eval").innerHTML = "Votre configuration obtient le score de " + score + "/10! Il n'y a rien à améliorer ";
+  }
+  else{
+  document.getElementById("eval").innerHTML = "Votre configuration obtient le score de " + score + "/10! Vous pourriez améliorez : " + ameliore;
+  }
 }

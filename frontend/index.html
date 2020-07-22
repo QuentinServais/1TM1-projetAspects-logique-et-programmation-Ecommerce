@@ -10,36 +10,36 @@
   <div id="composants">
   <div id="cpu">
     <h3>Processeur</h3>
-  <select id="selectCpu" name="selectCpu">
+  <select class="list" id="selectCpu" name="selectCpu">
    <option value="" selected disabled hidden> -- Choisissez une option -- </option>
-   <option value="I7 10700k">I7 10700k</option>
-   <option value="I5 10600k">I5 10600k</option>
-   <option value="R7 3700X">R7 3700X</option>
-   <option value="Threadripper 3990X">Threadripper 3990X</option>
+   <option value="I7 10700k">I7 10700k Socket 1200</option>
+   <option value="I5 10600k">I5 10600k Socket 1200</option>
+   <option value="R7 3700X">R7 3700X Socket AM4</option>
+   <option value="Threadripper 3990X">Threadripper 3990X Socket TRX40</option>
   </select>
-  <button onclick="selectCpu();">Sélectionner</button>
+  <button class="button1" onclick="selectCpu();">Sélectionner</button>
   <div id="cpuBox"></div><br><br>
   <img id="cpuIm" src="IMG/cpu.jpg" style="width:200px">
   </div>
   <br>
   <h3>Carte Mère</h3>
   <div id="carteMere">
-  <select id="selectCM" name="selectCM">
+  <select class="list" id="selectCM" name="selectCM">
     <option value="" selected disabled hidden> -- Choisissez une option -- </option>
-    <option value="Z490">MSI Z490</option>
-    <option value="TRX40">Gigabyte TRX40</option>
-    <option value="B550">ASRock B550</option>
-    <option value="B460">MSI B460</option>
-    <option value="X470">Asus X470</option>
+    <option value="Z490">MSI Z490 Socket 1200</option>
+    <option value="TRX40">Gigabyte TRX40 Socket TRX40</option>
+    <option value="B550">ASRock B550 Socket AM4</option>
+    <option value="B460">MSI B460 Socket 1200</option>
+    <option value="X470">Asus X470 Socket AM4</option>
   </select>
-  <button onclick="selectCM();">Sélectionner</button>
+  <button class="button1" onclick="selectCM();">Sélectionner</button>
   <div id="cMBox"></div><br><br>
   <img id="cMIm" src="IMG/cm.jpg" style="width:200px">
   </div>
   <br>
   <h3>RAM</h3>
   <div id="rAM">
-  <select id="selectRAM" name="selectRAM">
+  <select class="list" id="selectRAM" name="selectRAM">
     <option value="" selected disabled hidden> -- Choisissez une option -- </option>
     <option value="r1">Corsair Vengeance 3600MHz 16Go</option>
     <option value="r2">GSkill Trident Z 4000MHz 32Go</option>
@@ -47,14 +47,14 @@
     <option value="r4">Corsair Vengeance 3000MHz 8Go</option>
     <option value="r5">HyperX Fury 1600MHz 8Go</option>
   </select>
-  <button onclick="selectRAM();">Sélectionner</button>
+  <button class="button1" onclick="selectRAM();">Sélectionner</button>
   <div id="rAMBox"></div><br><br>
   <img id="rAMIm" src="IMG/ram.jpg" style="width:200px">
   </div>
   <br>
   <h3>Carte Graphique</h3>
   <div id="GPU">
-  <select id="selectGPU" name="selectGPU">
+  <select class="list" id="selectGPU" name="selectGPU">
     <option value="" selected disabled hidden> -- Choisissez une option -- </option>
     <option value="gpu1">EVGA RTX 2060 6Go</option>
     <option value="gpu2">MSI RTX 2070 8Go</option>
@@ -62,14 +62,14 @@
     <option value="gpu4">RTX 2080Ti 11Go</option>
     <option value="gpu5">RX 5700XT 8Go</option>
   </select>
-  <button onclick="selectGPU();">Sélectionner</button>
+  <button class="button1" onclick="selectGPU();">Sélectionner</button>
   <div id="GPUBox"></div><br><br>
   <img id="GPUIm" src="IMG/gpu.jpg" style="width:200px">
   </div>
   <br>
   <h3>Alimentation</h3>
   <div id="PSU">
-  <select id="selectPSU" name="selectPSU">
+  <select class="list" id="selectPSU" name="selectPSU">
     <option value="" selected disabled hidden> -- Choisissez une option -- </option>
     <option value="psu1">Corsair CV450</option>
     <option value="psu2">Corsair CX550M</option>
@@ -77,14 +77,14 @@
     <option value="psu4">Bequiet 700</option>
     <option value="psu5">Corsair HX1200</option>
   </select>
-  <button onclick="selectPSU();">Sélectionner</button>
+  <button class="button1" onclick="selectPSU();">Sélectionner</button>
   <div id="PSUBox"></div><br><br>
   <img id="PSUIm" src="IMG/psu.jpg" style="width:200px">
   </div>
 </div>
 <div id="check">
   <br><br>
-  <button onclick="compatibilite();">Vérifier la compatibilité</button><button onclick="evaluer();">Evaluer ma configuration</button>
+  <button class="button" onclick="compatibilite();">Vérifier la compatibilité</button><button class="button" onclick="evaluer();">Evaluer ma configuration</button>
 </div>
   <div id="rep"></div>
   <div id="eval"></div>

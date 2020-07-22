@@ -12,7 +12,7 @@ body {
 div#composants {
   margin-top: 16em;
   margin-left: 2em;
-  width: 50%;
+  width: 60%;
 }
 div#cpuBox {
   background-color: lightblue;
@@ -54,4 +54,37 @@ div#eval {
   border-radius: 25px;
   text-align: center;
   margin-bottom: 4em;
+}
+.button{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1{
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left: 2em;
+}
+.list{
+  cursor: pointer;
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  color: black;
+  font-size: 16px;
 }
