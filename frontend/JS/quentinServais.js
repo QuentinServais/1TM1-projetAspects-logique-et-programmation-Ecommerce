@@ -1,3 +1,4 @@
+"use strict";
 let cpu = [
     {
   marque: "Intel",
@@ -366,6 +367,7 @@ function compatibilite(){
 
 function evaluer(){
   let score = (cpuChoisis.points + rAMChoisie.points + gpuChoisit.points + pSUChoisit.points)/4;
+  score = score.toFixed(2);
   let arrScore = [cpuChoisis.points, rAMChoisie.points, gpuChoisit.points, pSUChoisit.points];
   let config = [cpuChoisis, rAMChoisie, gpuChoisit, pSUChoisit];
   let ameliore = "";
