@@ -1,5 +1,5 @@
 "use strict";
-let cpu = [
+let cPU = [
     {
   marque: "Intel",
   model: "I7 10700k",
@@ -8,7 +8,10 @@ let cpu = [
   prix: 550,
   points: 9,
   image: "IMG/10700k.jpg",
-  tdp: 125
+  tdp: 125,
+  id: "cpu1",
+  nom: "I7 10700k Socket 1200"
+
 },
     {
     marque: "Intel",
@@ -18,7 +21,9 @@ let cpu = [
     prix: 330,
     points: 7,
     image: "IMG/10600k.jpg",
-    tdp: 125
+    tdp: 125,
+    id: "cpu2",
+    nom: "I5 10600k Socket 1200"
 },
     {
       marque: "AMD",
@@ -28,7 +33,9 @@ let cpu = [
       prix: 350,
       points: 8,
       image: "IMG/3700x.jpg",
-      tdp: 65
+      tdp: 65,
+      id: "cpu3",
+      nom: "R7 3700X Socket AM4"
 },
 {
   marque: "AMD",
@@ -38,7 +45,9 @@ let cpu = [
   prix: 4700,
   points: 10,
   image: "IMG/3990x.jpg",
-  tdp: 280
+  tdp: 280,
+  id: "cpu4",
+  nom: "Threadripper 3990X Socket TRX40"
 }
 ];
 let carteMere = [
@@ -48,8 +57,9 @@ let carteMere = [
   socket: "1200",
   format: "ATX",
   prix: 180,
-  code: 1,
-  image: "IMG/z490.jpg"
+  id: "cm1",
+  image: "IMG/z490.jpg",
+  nom: "MSI Z490 Socket 1200"
 },
   {
   marque: "ASRock",
@@ -57,8 +67,9 @@ let carteMere = [
   socket: "AM4",
   format: "Micro-ATX",
   prix: 170,
-  code: 2,
-  image: "IMG/b550.jpg"
+  id: "cm2",
+  image: "IMG/b550.jpg",
+  nom: "ASRock B550 Socket AM4"
 },
   {
   marque: "Asus",
@@ -66,8 +77,9 @@ let carteMere = [
   socket: "AM4",
   format: "ATX",
   prix: 220,
-  code: 2,
-  image: "IMG/x470.jpg"
+  id: "cm3",
+  image: "IMG/x470.jpg",
+  nom: "Asus X470 Socket AM4"
 },
   {
   marque: "Gigabyte",
@@ -75,8 +87,9 @@ let carteMere = [
   socket: "TRX40",
   format: "ATX",
   prix: 480,
-  code: 3,
-  image: "IMG/trx40.jpg"
+  id: "cm4",
+  image: "IMG/trx40.jpg",
+  nom: "Gigabyte TRX40 Socket TRX40"
 },
   {
   marque: "MSI",
@@ -84,8 +97,9 @@ let carteMere = [
   socket: "1200",
   format: "Micro-ATX",
   prix: 80,
-  code: 1,
-  image: "IMG/b460.png"
+  id: "cm5",
+  image: "IMG/b460.png",
+  nom: "MSI B460 Socket 1200"
 }
 ];
 let rAM = [
@@ -98,7 +112,8 @@ let rAM = [
     prix: 170,
     points: 8,
     id: "r1",
-    image: "IMG/r1.jpg"
+    image: "IMG/r1.jpg",
+    nom: "Corsair Vengeance 3600MHz 16Go"
   },
   {
     marque: "GSkill",
@@ -109,7 +124,8 @@ let rAM = [
     prix: 310,
     points: 10,
     id: "r2",
-    image: "IMG/r2.jpg"
+    image: "IMG/r2.jpg",
+    nom: "GSkill Trident Z 4000MHz 32Go"
   },
   {
     marque: "Crucial",
@@ -120,7 +136,8 @@ let rAM = [
     prix: 130,
     points: 7,
     id: "r3",
-    image: "IMG/r3.jpg"
+    image: "IMG/r3.jpg",
+    nom: "Crucial Ballistix 3000MHz 16Go"
   },
   {
     marque: "Corsair",
@@ -131,7 +148,8 @@ let rAM = [
     prix: 70,
     points: 6,
     id: "r4",
-    image: "IMG/r1.jpg"
+    image: "IMG/r1.jpg",
+    nom : "Corsair Vengeance 3000MHz 8Go"
   },
   {
     marque: "HyperX",
@@ -142,7 +160,8 @@ let rAM = [
     prix: 40,
     points: 4,
     id: "r5",
-    image: "IMG/r5.jpg"
+    image: "IMG/r5.jpg",
+    nom: "HyperX Fury 1600MHz 8Go"
   }
 ];
 let gPU = [
@@ -155,7 +174,8 @@ let gPU = [
     points: 6,
     id: "gpu1",
     image: "IMG/gpu1.jpg",
-    tdp: 160
+    tdp: 160,
+    nom: "EVGA RTX 2060 6Go"
   },
   {
     marque: "MSI",
@@ -166,7 +186,8 @@ let gPU = [
     points: 8,
     id: "gpu2",
     image: "IMG/gpu2.jpg",
-    tdp: 175
+    tdp: 175,
+    nom: "MSI RTX 2070 8Go"
   },
   {
     marque: "Gigabyte",
@@ -177,7 +198,8 @@ let gPU = [
     points: 6,
     id: "gpu3",
     image: "IMG/gpu3.jpg",
-    tdp: 120
+    tdp: 120,
+    nom: "GTX 1660Ti 6Go"
   },
   {
     marque: "MSI",
@@ -188,7 +210,8 @@ let gPU = [
     points: 10,
     id: "gpu4",
     image: "IMG/gpu4.jpg",
-    tdp: 250
+    tdp: 250,
+    nom: "RTX 2080Ti 11Go"
   },
   {
     marque: "ASRock",
@@ -199,7 +222,8 @@ let gPU = [
     points: 8,
     id: "gpu5",
     image: "IMG/gpu5.jpg",
-    tdp: 225
+    tdp: 225,
+    nom: "RX 5700XT 8Go"
   }
 ];
 let pSU = [
@@ -212,7 +236,8 @@ let pSU = [
     modularité: "non-modulaire",
     id: "psu1",
     points: 5,
-    image: "IMG/psu1.jpg"
+    image: "IMG/psu1.jpg",
+    nom: "Corsair CV450"
   },
   {
     marque: "Corsair",
@@ -223,7 +248,8 @@ let pSU = [
     modularité: "semi-modulaire",
     id: "psu2",
     points: 6,
-    image: "IMG/psu2.jpg"
+    image: "IMG/psu2.jpg",
+    nom: "Corsair CX550M"
   },
   {
     marque: "Seasonic",
@@ -234,7 +260,8 @@ let pSU = [
     modularité: "non-modulaire",
     id: "psu3",
     points: 6,
-    image: "IMG/psu3.jpg"
+    image: "IMG/psu3.jpg",
+    nom: "Seasonic S12 650"
   },
   {
     marque: "Bequiet",
@@ -245,7 +272,8 @@ let pSU = [
     modularité: "semi-modulaire",
     id: "psu4",
     points: 7,
-    image: "IMG/psu4.jpg"
+    image: "IMG/psu4.jpg",
+    nom: "Bequiet 700"
   },
   {
     marque: "Corsair",
@@ -256,30 +284,31 @@ let pSU = [
     modularité: "modulaire",
     id: "psu5",
     points: 10,
-    image: "IMG/psu5.jpg"
+    image: "IMG/psu5.jpg",
+    nom: "Corsair HX1200"
   }
 ];
-let cpuChoisis;
+let cpuChoisis;//Choisi
 let cMChoisie;
 let rAMChoisie;
-let gpuChoisit;
-let pSUChoisit;
+let gpuChoisit;//Choisi
+let pSUChoisit;//Choisie
 
-function selectCpu(){
+function slctCpu(){
   cpuChoisis = document.getElementById("selectCpu").value;
-  for(let i = 0; i < cpu.length; i++){
-    if(cpuChoisis == cpu[i].model){
-      document.getElementById("cpuBox").innerHTML = "Vous avez choisi : " + cpu[i].marque + " " + cpu[i].model + " Socket " + cpu[i].socket + " " + cpu[i].prix + "€";
-      cpuChoisis = cpu[i];
+  for(let i = 0; i < cPU.length; i++){
+    if(cpuChoisis == cPU[i].id){
+      document.getElementById("cpuBox").innerHTML = "Vous avez choisi : " + cPU[i].marque + " " + cPU[i].model + " Socket " + cPU[i].socket + " " + cPU[i].prix + "€";
+      cpuChoisis = cPU[i];
       document.getElementById("cpuIm").src= cpuChoisis.image;
     }
   }
 }
 
-function selectCM(){
+function slctCM(){
   cMChoisie = document.getElementById("selectCM").value;
   for(let i = 0; i < carteMere.length; i++){
-    if(cMChoisie == carteMere[i].model){
+    if(cMChoisie == carteMere[i].id){
       document.getElementById("cMBox").innerHTML = "Vous avez choisi : " + carteMere[i].marque + " " + carteMere[i].model + " Socket " + carteMere[i].socket + " " + carteMere[i].prix + "€";
       cMChoisie = carteMere[i];
       document.getElementById("cMIm").src= cMChoisie.image;
@@ -287,7 +316,7 @@ function selectCM(){
   }
 }
 
-function selectRAM(){
+function slctRAM(){
   rAMChoisie = document.getElementById("selectRAM").value;
   for(let i = 0; i < rAM.length; i++){
     if(rAMChoisie == rAM[i].id){
@@ -298,7 +327,7 @@ function selectRAM(){
   }
 }
 
-function selectGPU(){
+function slctGPU(){
   gpuChoisit = document.getElementById("selectGPU").value;
   for(let i = 0; i < gPU.length; i++){
     if(gpuChoisit == gPU[i].id){
@@ -309,7 +338,7 @@ function selectGPU(){
   }
 }
 
-function selectPSU(){
+function slctPSU(){
   pSUChoisit = document.getElementById("selectPSU").value;
   for(let i = 0; i < pSU.length; i++){
     if(pSUChoisit == pSU[i].id){
@@ -385,4 +414,21 @@ function evaluer(){
   else{
   document.getElementById("eval").innerHTML = "Votre configuration obtient le score de " + score + "/10! Vous pourriez améliorez : " + ameliore;
   }
+}
+
+//function createOption(id, obj){}
+function createOption(id, arr){
+  let str='<option value="" selected disabled hidden> -- Choisissez une option -- </option>';
+  for(let i = 0; i < arr.length; i++){
+    str += "<option value=" + arr[i].id + ">" + arr[i].nom + "</option>";
+  }
+  document.getElementById(id).innerHTML = str;
+}
+
+function initialisation(){
+  createOption("selectCpu", cPU);
+  createOption("selectCM", carteMere);
+  createOption("selectRAM", rAM);
+  createOption("selectGPU", gPU);
+  createOption("selectPSU", pSU);
 }
