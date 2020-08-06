@@ -16,28 +16,33 @@ div#composants {
 }
 div#cpuBox {
   background-color: lightblue;
-  border-radius: 25px;
+  border-radius: 15px;
+  padding: 5px;
   float: right;
 }
 div#cMBox {
   background-color: lightblue;
-  border-radius: 25px;
+  border-radius: 15px;
   float: right;
+  padding: 5px;
 }
 div#rAMBox {
   background-color: lightblue;
-  border-radius: 25px;
+  border-radius: 15px;
   float: right;
+  padding: 5px;
 }
 div#GPUBox {
   background-color: lightblue;
-  border-radius: 25px;
+  border-radius: 15px;
   float: right;
+  padding: 5px;
 }
 div#PSUBox {
   background-color: lightblue;
-  border-radius: 25px;
+  border-radius: 15px;
   float: right;
+  padding: 5px;
 }
 div#check {
   text-align: center;

@@ -10,7 +10,8 @@ let cPU = [
   image: "IMG/10700k.jpg",
   tdp: 125,
   id: "cpu1",
-  nom: "I7 10700k Socket 1200"
+  nom: "Intel I7 10700k Socket 1200",
+  architecture: "Comet Lake"
 
 },
     {
@@ -23,7 +24,8 @@ let cPU = [
     image: "IMG/10600k.jpg",
     tdp: 125,
     id: "cpu2",
-    nom: "I5 10600k Socket 1200"
+    nom: "Intel I5 10600k Socket 1200",
+    architecture: "Comet Lake"
 },
     {
       marque: "AMD",
@@ -35,7 +37,8 @@ let cPU = [
       image: "IMG/3700x.jpg",
       tdp: 65,
       id: "cpu3",
-      nom: "R7 3700X Socket AM4"
+      nom: "AMD R7 3700X Socket AM4",
+      architecture: "Zen 2"
 },
 {
   marque: "AMD",
@@ -47,7 +50,8 @@ let cPU = [
   image: "IMG/3990x.jpg",
   tdp: 280,
   id: "cpu4",
-  nom: "Threadripper 3990X Socket TRX40"
+  nom: "AMD Threadripper 3990X Socket TRX40",
+  architecture: "Zen 2"
 }
 ];
 let carteMere = [
@@ -199,7 +203,7 @@ let gPU = [
     id: "gpu3",
     image: "IMG/gpu3.jpg",
     tdp: 120,
-    nom: "GTX 1660Ti 6Go"
+    nom: "Gigabyte GTX 1660Ti 6Go"
   },
   {
     marque: "MSI",
@@ -211,7 +215,7 @@ let gPU = [
     id: "gpu4",
     image: "IMG/gpu4.jpg",
     tdp: 250,
-    nom: "RTX 2080Ti 11Go"
+    nom: "MSI RTX 2080Ti 11Go"
   },
   {
     marque: "ASRock",
@@ -223,7 +227,7 @@ let gPU = [
     id: "gpu5",
     image: "IMG/gpu5.jpg",
     tdp: 225,
-    nom: "RX 5700XT 8Go"
+    nom: "ASRock RX 5700XT 8Go"
   }
 ];
 let pSU = [
@@ -298,8 +302,9 @@ function slctCpu(){
   cpuChoisis = document.getElementById("selectCpu").value;
   for(let i = 0; i < cPU.length; i++){
     if(cpuChoisis == cPU[i].id){
-      document.getElementById("cpuBox").innerHTML = "Vous avez choisi : " + cPU[i].marque + " " + cPU[i].model + " Socket " + cPU[i].socket + " " + cPU[i].prix + "€";
       cpuChoisis = cPU[i];
+      let cpuData = Object.keys(cpuChoisis);
+      document.getElementById("cpuBox").innerHTML = "Vous avez choisi: <br>" + cpuData[0].bold() + ": " + cpuChoisis.marque + "<br>" + cpuData[1].bold() + ": " + cpuChoisis.model + "<br>" + cpuData[2].bold() + ": " + cpuChoisis.socket + "<br>" + cpuData[3].bold() + ": " + cpuChoisis.fréquence + " GHz <br>" + cpuData[10].bold() + ": " + cpuChoisis.architecture + "<br>" + cpuData[4].bold() + ": " + cpuChoisis.prix + "€";
       document.getElementById("cpuIm").src= cpuChoisis.image;
     }
   }
@@ -309,8 +314,9 @@ function slctCM(){
   cMChoisie = document.getElementById("selectCM").value;
   for(let i = 0; i < carteMere.length; i++){
     if(cMChoisie == carteMere[i].id){
-      document.getElementById("cMBox").innerHTML = "Vous avez choisi : " + carteMere[i].marque + " " + carteMere[i].model + " Socket " + carteMere[i].socket + " " + carteMere[i].prix + "€";
       cMChoisie = carteMere[i];
+      let cMData = Object.keys(cMChoisie);
+      document.getElementById("cMBox").innerHTML = "Vous avez choisi: <br>" + cMData[0].bold() + ": " + cMChoisie.marque + "<br>" + cMData[1].bold() + ": " + cMChoisie.model + "<br>" + cMData[2].bold() + ": " + cMChoisie.socket + "<br>" + cMData[3].bold() + ": " + cMChoisie.format + "<br>" + cMData[4].bold() + ": " + cMChoisie.prix + "€";
       document.getElementById("cMIm").src= cMChoisie.image;
     }
   }
@@ -320,8 +326,9 @@ function slctRAM(){
   rAMChoisie = document.getElementById("selectRAM").value;
   for(let i = 0; i < rAM.length; i++){
     if(rAMChoisie == rAM[i].id){
-      document.getElementById("rAMBox").innerHTML = "Vous avez choisi : " + rAM[i].marque + " " + rAM[i].model + " " +  rAM[i].type + " " + rAM[i].fréquence + "MHz" + " " + rAM[i].taille + "Go " + rAM[i].prix + "€";
       rAMChoisie = rAM[i];
+      let rAMData = Object.keys(rAMChoisie);
+      document.getElementById("rAMBox").innerHTML = "Vous avez choisi: <br>" + rAMData[0].bold() + ": " + rAMChoisie.marque + "<br>" + rAMData[1].bold() + ": " + rAMChoisie.model + "<br>" + rAMData[2].bold() + ": " + rAMChoisie.type + "<br>" + rAMData[3].bold() + ": " + rAMChoisie.fréquence + "MHz" + "<br>" + rAMData[4].bold() + ": " + rAMChoisie.taille + "Go <br>" + rAMData[5].bold() + ": " + rAMChoisie.prix + "€";
       document.getElementById("rAMIm").src= rAMChoisie.image;
     }
   }
@@ -331,8 +338,9 @@ function slctGPU(){
   gpuChoisit = document.getElementById("selectGPU").value;
   for(let i = 0; i < gPU.length; i++){
     if(gpuChoisit == gPU[i].id){
-      document.getElementById("GPUBox").innerHTML = "Vous avez choisi : " + gPU[i].marque + " " + gPU[i].model + " " + gPU[i].fréquence + "MHz" + " " + gPU[i].memoire + "Go " + gPU[i].prix + "€";
       gpuChoisit = gPU[i];
+      let gpuData = Object.keys(gpuChoisit);
+      document.getElementById("GPUBox").innerHTML = "Vous avez choisi: <br>" + gpuData[0].bold() + ": " + gpuChoisit.marque + "<br>" + gpuData[1].bold() + ": " + gpuChoisit.model + "<br>" + gpuData[2].bold() + ": " + gpuChoisit.fréquence + "MHz" + "<br>" + gpuData[3].bold() + ": " + gpuChoisit.memoire + "Go <br>" + gpuData[4].bold() + ": " + gpuChoisit.prix + "€";
       document.getElementById("GPUIm").src= gpuChoisit.image;
     }
   }
@@ -343,7 +351,8 @@ function slctPSU(){
   for(let i = 0; i < pSU.length; i++){
     if(pSUChoisit == pSU[i].id){
       pSUChoisit = pSU[i];
-      document.getElementById("PSUBox").innerHTML = "Vous avez choisi : " + pSUChoisit.marque + " " + pSUChoisit.model + " " + pSUChoisit.watt + "W" + " certifiée " + pSUChoisit.certification + " " + pSUChoisit.prix + "€";
+      let psuData = Object.keys(pSUChoisit);
+      document.getElementById("PSUBox").innerHTML = "Vous avez choisi : <br>" + psuData[0].bold() + ": " + pSUChoisit.marque + "<br>" + psuData[1].bold() + ": " +pSUChoisit.model + "<br>" + psuData[2].bold() + ": " + pSUChoisit.watt + "W <br>"+ psuData[4].bold() + ": " + pSUChoisit.certification + "<br>" + psuData[3].bold() + ": " + pSUChoisit.prix + "€";
       document.getElementById("PSUIm").src= pSUChoisit.image;
     }
   }
@@ -378,7 +387,7 @@ function compatibilite(){
       }
       else{
         document.getElementById("rep").style.backgroundColor = "#dc143c";
-        document.getElementById("rep").innerHTML = "Attention Vous avez besoin d'une alimentation d'au moins " + tdpMax + " Watt!";
+        document.getElementById("rep").innerHTML = "Attention Vous avez besoin d'une alimentation d'au moins " + String(tdpMax).bold() + " Watt!";
       }
     }
     else{
@@ -389,7 +398,7 @@ function compatibilite(){
   }
   else{
     document.getElementById("rep").style.backgroundColor = "#dc143c";
-    document.getElementById("rep").innerHTML = "Attention le socket de la carte mère n'est pas compatible avec celui du processeur !";
+    document.getElementById("rep").innerHTML = "Attention le socket de la carte mère n'est pas compatible avec celui du processeur ! Choisissez une carte mère avec le socket " + cpuChoisis.socket.bold();
   }
   }
 }
@@ -416,7 +425,6 @@ function evaluer(){
   }
 }
 
-//function createOption(id, obj){}
 function createOption(id, arr){
   let str='<option value="" selected disabled hidden> -- Choisissez une option -- </option>';
   for(let i = 0; i < arr.length; i++){
@@ -426,9 +434,26 @@ function createOption(id, arr){
 }
 
 function initialisation(){
+  cPU.sort(trierMarque);
+  carteMere.sort(trierMarque);
+  rAM.sort(trierMarque);
+  gPU.sort(trierMarque);
+  pSU.sort(trierMarque);
   createOption("selectCpu", cPU);
   createOption("selectCM", carteMere);
   createOption("selectRAM", rAM);
   createOption("selectGPU", gPU);
   createOption("selectPSU", pSU);
+}
+
+function trierMarque(a, b){
+  if(a.marque > b.marque){
+    return 1;
+  }
+  else if(a.marque < b.marque){
+    return -1;
+  }
+  else{
+    return 0;
+  }
 }
