@@ -7,7 +7,6 @@ body {
 	background-position: top center;
 	background-position-y: 0.5em;
 	background-color: #00c4cc;
-	position: center;
 }
   nav{
       margin-top: 6em;
@@ -19,44 +18,15 @@ div#composants {
   margin-left: 4em;
   width: 60%;
 }
-div#cpuBox {
-  background-color: lightblue;
-  border-radius: 15px;
-  padding: 5px;
-  float: right;
-}
-div#cpuBox:empty{display: none;}
 
-div#cMBox {
-  background-color: lightblue;
-  border-radius: 15px;
-  float: right;
-  padding: 5px;
-}
-div#rAMBox {
-  background-color: lightblue;
-  border-radius: 15px;
-  float: right;
-  padding: 5px;
-}
-div#GPUBox {
-  background-color: lightblue;
-  border-radius: 15px;
-  float: right;
-  padding: 5px;
-}
-div#PSUBox {
-  background-color: lightblue;
-  border-radius: 15px;
-  float: right;
-  padding: 5px;
-}
+.infoBox:empty{display: none;}
+
+
 div#check {
   text-align: center;
 }
 div#rep {
   margin-top: 1em;
-  background-color: lightgreen;
   border-radius: 25px;
   text-align: center;
 }
@@ -79,20 +49,7 @@ div#eval {
   margin: 4px 2px;
   cursor: pointer;
 }
-.button1{
-  background-color: white;
-  border-radius: 5px;
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  margin-left: 2em;
-}
+
 .list{
   cursor: pointer;
   background-color: white;
@@ -100,6 +57,18 @@ div#eval {
   border-width: 1px;
   color: black;
   font-size: 16px;
+}
+.rouge{
+  background-color: #dc143c;
+}
+.vert{
+  background-color: lightgreen;
+}
+.infoBox{
+  background-color: lightblue;
+  border-radius: 15px;
+  float: right;
+  padding: 5px;
 }
 
 table{

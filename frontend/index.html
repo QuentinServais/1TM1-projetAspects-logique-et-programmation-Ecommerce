@@ -12,12 +12,12 @@
   <a class="versus" href="versus.html">Versus</a>
 </nav>
   <div id="composants">
-  <form>
+  <form onsubmit="compatibilite(); return false;">
   <div id="cpu">
   <label for="selectCpu">Processeurs</label>
   <select class="list" id="selectCpu" name="selectCpu" onchange="slctCpu()">
   </select>
-  <div id="cpuBox"></div><br><br>
+  <div id="cpuBox" class="infoBox"></div><br><br>
   <img id="cpuIm" src="IMG/cpu.jpg" style="width:200px">
   </div>
   <br>
@@ -25,7 +25,7 @@
   <label for="selectCM">Carte Mère</label>
   <select class="list" id="selectCM" name="selectCM" onchange="slctCM()">
   </select>
-  <div id="cMBox"></div><br><br>
+  <div id="cMBox" class="infoBox"></div><br><br>
   <img id="cMIm" src="IMG/cm.jpg" style="width:200px">
   </div>
   <br>
@@ -33,7 +33,7 @@
   <label for="selectRAM">RAM</label>
   <select class="list" id="selectRAM" name="selectRAM" onchange="slctRAM()">
   </select>
-  <div id="rAMBox"></div><br><br>
+  <div id="rAMBox" class="infoBox"></div><br><br>
   <img id="rAMIm" src="IMG/ram.jpg" style="width:200px">
   </div>
   <br>
@@ -41,7 +41,7 @@
   <label for="selectGPU">Carte Graphique</label>
   <select class="list" id="selectGPU" name="selectGPU" onchange="slctGPU()">
   </select>
-  <div id="GPUBox"></div><br><br>
+  <div id="GPUBox" class="infoBox"></div><br><br>
   <img id="GPUIm" src="IMG/gpu.jpg" style="width:200px">
   </div>
   <br>
@@ -49,14 +49,14 @@
   <label for="selectPSU">Alimentation</label>
   <select class="list" id="selectPSU" name="selectPSU" onchange="slctPSU()">
   </select>
-  <div id="PSUBox"></div><br><br>
+  <div id="PSUBox" class="infoBox"></div><br><br>
   <img id="PSUIm" src="IMG/psu.jpg" style="width:200px">
   </div>
-  </form>
-</div>
+  </div>
 <div id="check">
   <br><br>
-  <button class="button" onclick="compatibilite();">Vérifier la compatibilité</button><button class="button" onclick="evaluer();">Evaluer ma configuration</button>
+  <input value="Vérifier la compatibilité" type="submit" class="button"><button class="button" onclick="evaluer();">Evaluer ma configuration</button>
+</form>
 </div>
   <div id="rep"></div>
   <div id="eval"></div>

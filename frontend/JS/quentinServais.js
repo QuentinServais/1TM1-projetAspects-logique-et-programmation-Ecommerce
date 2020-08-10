@@ -388,42 +388,42 @@ function slctPSU(){
 function compatibilite(){
   let securite = 100;
   if(cpuChoisis == undefined || cMChoisie == undefined){
-    document.getElementById("rep").style.backgroundColor = "#dc143c";
+    document.getElementById("rep").setAttribute("class", "rouge");
     document.getElementById("rep").innerHTML = "Veuillez choisir un processeur et une carte mère";
   }
   else{
   if(cpuChoisis.socket == cMChoisie.socket){
     if(rAMChoisie == undefined){
-      document.getElementById("rep").style.backgroundColor = "#dc143c";
+      document.getElementById("rep").setAttribute("class", "rouge");
       document.getElementById("rep").innerHTML = "Veuillez choisir un modèle de RAM!";
     }
     if(rAMChoisie.type == "DDR4"){
       if(gpuChoisit == undefined){
-        document.getElementById("rep").style.backgroundColor = "#dc143c";
+        document.getElementById("rep").setAttribute("class", "rouge");
         document.getElementById("rep").innerHTML = "Veuillez choisir une carte graphique!";
       }
       let tdpMax = securite + Number(gpuChoisit.tdp) + Number(cpuChoisis.tdp);
       if(pSUChoisit == undefined){
-        document.getElementById("rep").style.backgroundColor = "#dc143c";
+        document.getElementById("rep").setAttribute("class", "rouge");
         document.getElementById("rep").innerHTML = "Veuillez choisir une alimentation!";
       }
       if(pSUChoisit.watt >= tdpMax){
-        document.getElementById("rep").style.backgroundColor = "lightgreen";
+        document.getElementById("rep").setAttribute("class", "vert");
         document.getElementById("rep").innerHTML = "C'est compatible !";
       }
       else{
-        document.getElementById("rep").style.backgroundColor = "#dc143c";
+        document.getElementById("rep").setAttribute("class", "rouge");
         document.getElementById("rep").innerHTML = "Attention Vous avez besoin d'une alimentation d'au moins " + String(tdpMax).bold() + " Watt!";
       }
     }
     else{
-      document.getElementById("rep").style.backgroundColor = "#dc143c";
+      document.getElementById("rep").setAttribute("class", "rouge");
       document.getElementById("rep").innerHTML = "Attention la RAM n'est pas compatible !";
     }
 
   }
   else{
-    document.getElementById("rep").style.backgroundColor = "#dc143c";
+    document.getElementById("rep").setAttribute("class", "rouge");
     document.getElementById("rep").innerHTML = "Attention le socket de la carte mère n'est pas compatible avec celui du processeur ! Choisissez une carte mère avec le socket " + cpuChoisis.socket.bold();
   }
   }
