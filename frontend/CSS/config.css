@@ -9,9 +9,14 @@ body {
 	background-color: #00c4cc;
 	position: center;
 }
+  nav{
+      margin-top: 6em;
+      text-align: center;
+      font-size: 1.5em;
+  }
 div#composants {
-  margin-top: 16em;
-  margin-left: 2em;
+  margin-top: 12em;
+  margin-left: 4em;
   width: 60%;
 }
 div#cpuBox {
@@ -20,6 +25,8 @@ div#cpuBox {
   padding: 5px;
   float: right;
 }
+div#cpuBox:empty{display: none;}
+
 div#cMBox {
   background-color: lightblue;
   border-radius: 15px;
@@ -93,4 +100,13 @@ div#eval {
   border-width: 1px;
   color: black;
   font-size: 16px;
+}
+
+table{
+  border: solid;
+  border-width: thin;
+}
+td{
+  border: solid;
+  border-width: thin;
 }

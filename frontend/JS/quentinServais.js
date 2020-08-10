@@ -172,8 +172,13 @@ let gPU = [
   {
     marque: "EVGA",
     model: "RTX 2060",
+    name: "SC Ultra Gaming",
+    architecture: "Turing",
     fréquence: 1755,
     memoire: 6,
+    type: "GDDR6",
+    tailleBus: 192,
+    Tflops: 6.566,
     prix: 350,
     points: 6,
     id: "gpu1",
@@ -184,9 +189,14 @@ let gPU = [
   {
     marque: "MSI",
     model: "RTX 2070",
+    name: "Ventus GP",
+    architecture: "Turing",
     fréquence: 1620,
     memoire: 8,
-    prix: 170,
+    type: "GDDR6",
+    tailleBus: 256,
+    Tflops: 7.465,
+    prix: 520,
     points: 8,
     id: "gpu2",
     image: "IMG/gpu2.jpg",
@@ -196,8 +206,13 @@ let gPU = [
   {
     marque: "Gigabyte",
     model: "GTX 1660Ti",
+    name: "Gaming OC",
+    architecture: "Turing",
     fréquence: 1890,
     memoire: 6,
+    type: "GDDR6",
+    tailleBus: 192,
+    Tflops: 5.71,
     prix: 330,
     points: 6,
     id: "gpu3",
@@ -208,8 +223,13 @@ let gPU = [
   {
     marque: "MSI",
     model: "RTX 2080Ti",
+    name: "Gaming X Trio",
+    architecture: "Turing",
     fréquence: 1755,
     memoire: 11,
+    type: "GDDR6",
+    tailleBus: 352,
+    Tflops: 15.28,
     prix: 1550,
     points: 10,
     id: "gpu4",
@@ -220,8 +240,13 @@ let gPU = [
   {
     marque: "ASRock",
     model: "RX 5700XT",
+    name: "Taichi X OC",
+    architecture: "RDNA 1.0",
     fréquence: 2025,
     memoire: 8,
+    type: "GDDR6",
+    tailleBus: 256,
+    Tflops: 10.37,
     prix: 480,
     points: 8,
     id: "gpu5",
@@ -340,8 +365,9 @@ function slctGPU(){
     if(gpuChoisit == gPU[i].id){
       gpuChoisit = gPU[i];
       let gpuData = Object.keys(gpuChoisit);
-      document.getElementById("GPUBox").innerHTML = "Vous avez choisi: <br>" + gpuData[0].bold() + ": " + gpuChoisit.marque + "<br>" + gpuData[1].bold() + ": " + gpuChoisit.model + "<br>" + gpuData[2].bold() + ": " + gpuChoisit.fréquence + "MHz" + "<br>" + gpuData[3].bold() + ": " + gpuChoisit.memoire + "Go <br>" + gpuData[4].bold() + ": " + gpuChoisit.prix + "€";
       document.getElementById("GPUIm").src= gpuChoisit.image;
+      document.getElementById("GPUBox").innerHTML = "Vous avez choisi: <br>" + gpuData[0].bold() + ": " + gpuChoisit.marque + "<br>" + gpuData[1].bold() + ": " + gpuChoisit.model + "<br>" + gpuData[4].bold() + ": " + gpuChoisit.fréquence + "MHz" + "<br>" + gpuData[5].bold() + ": " + gpuChoisit.memoire + "Go <br>" + gpuData[9].bold() + ": " + gpuChoisit.prix + "€";
+
     }
   }
 }
@@ -446,6 +472,12 @@ function initialisation(){
   createOption("selectPSU", pSU);
 }
 
+function initialisationVersus(){
+  gPU.sort(trierMarque);
+  createOption("slctVersus1", gPU);
+  createOption("slctVersus2", gPU);
+}
+
 function trierMarque(a, b){
   if(a.marque > b.marque){
     return 1;
@@ -455,5 +487,16 @@ function trierMarque(a, b){
   }
   else{
     return 0;
+  }
+}
+
+function versus(){
+  let gpuId = document.getElementById("slctVersus1").value
+  for(let i = 0; i < gPU.length; i++){
+    if(gpuId == gPU[i].id){
+      gpuId = gPU[i];
+      document.getElementById("vMarque").innerHTML += "<td>" + gpuId.marque + "</td>"
+      document.getElementById("vModele").innerHTML += "<td>" + gpuId.model + gpuId.name + "</td>"
+    }
   }
 }

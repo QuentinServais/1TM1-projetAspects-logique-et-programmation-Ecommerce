@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Versus</title>
+    <script src="JS/quentinServais.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/config.css">
+  </head>
+  <body onload="initialisationVersus()">
+    <nav>
+      <a class="accueil" href="index.html">Accueil</a>
+      <a class="versus" href="versus.html">Versus</a>
+    </nav>
+    <div id="versus1">
+      <select class="list" id="slctVersus1" name="slctVersus1" onchange="slctGPU()">
+      </select>
+    </div>
+    <div id="versus2">
+      <select class="list" id="slctVersus2" name="slctVersus2" onchange="">
+      </select>
+    </div>
+    <div id="versus">
+      <table>
+          <tr id="vMarque"><td>Marque</td></tr>
+          <tr id="vModele"><td>Modèle</td></tr>
+          <tr id="vArchitecture"><td>Architecture</td></tr>
+          <tr id="vFrequence"><td>Fréquence</td></tr>
+          <tr id="vVRAM"><td>VRAM</td></tr>
+          <tr id="vType"><td>Type VRAM</td></tr>
+          <tr id="vBus"><td>Taille du Bus</td></tr>
+          <tr id="vTflops"><td>Tflops</td></tr>
+          <tr id="vTDP"><td>Total Draw Power</td></tr>
+      </table>
+    </div>
+  </body>
+</html>
