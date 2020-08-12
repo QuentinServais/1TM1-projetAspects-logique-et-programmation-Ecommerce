@@ -490,13 +490,30 @@ function trierMarque(a, b){
   }
 }
 
-function versus(){
-  let gpuId = document.getElementById("slctVersus1").value
+function versus(slct, tabl){
+  let gpuId = slct.value
   for(let i = 0; i < gPU.length; i++){
     if(gpuId == gPU[i].id){
-      gpuId = gPU[i];
-      document.getElementById("vMarque").innerHTML += "<td>" + gpuId.marque + "</td>"
-      document.getElementById("vModele").innerHTML += "<td>" + gpuId.model + gpuId.name + "</td>"
+      document.getElementById("vImage" + tabl).src = gPU[i].image;
+      document.getElementById("vMarque" + tabl).innerText = gPU[i].marque;
+      document.getElementById("vModele" + tabl).innerText = gPU[i].model + " " + gPU[i].name;
+      document.getElementById("vArchitecture" + tabl).innerText = gPU[i].architecture;
+      document.getElementById("vFrequence" + tabl).innerText = gPU[i].fréquence + " MHz";
+      document.getElementById("vVRAM" + tabl).innerText = gPU[i].memoire + " Go";
+      document.getElementById("vType" + tabl).innerText = gPU[i].type;
+      document.getElementById("vBus" + tabl).innerText = gPU[i].tailleBus + " bits";
+      document.getElementById("vTflops" + tabl).innerText = gPU[i].Tflops;
+      document.getElementById("vTDP" + tabl).innerText = gPU[i].tdp + " Watts";
     }
+  }
+}
+
+function comparer(){
+  let toCompare = ["vFrequence", "vVRAM", "vBus", "vTflops", "vTDP"];
+  let tdList = document.querySelectorAll("td");
+  for(let i = 1; i < toCompare.length; i++){
+      if(toCompare.indexOf(tdList[i]) != -1){
+
+      }
   }
 }
