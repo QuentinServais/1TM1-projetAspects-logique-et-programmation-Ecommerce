@@ -506,14 +506,44 @@ function versus(slct, tabl){
       document.getElementById("vTDP" + tabl).innerText = gPU[i].tdp + " Watts";
     }
   }
+  comparer();
 }
 
 function comparer(){
   let toCompare = ["vFrequence", "vVRAM", "vBus", "vTflops", "vTDP"];
-  let tdList = document.querySelectorAll("td");
-  for(let i = 1; i < toCompare.length; i++){
-      if(toCompare.indexOf(tdList[i]) != -1){
+  let tdList = document.querySelectorAll("tr[id]");
+  for(let i = 0; i < tdList.length; i++){
+      if(toCompare.indexOf(tdList[i].id) != -1){ //indexOf renverra -1 si il ne trouve pas dans toCompare l'id de tdList[i] il renverra son index sinon
+          let id = tdList[i].id
+          let vT1 = parseFloat(document.getElementById(id + "T1").innerText);
+          let vT2 = parseFloat(document.getElementById(id + "T2").innerText);
+          if(id == "vTDP"){
+            vT1 = -vT1;
+            vT2 = -vT2;
+            couleurs(id,vT1, vT2);
+          }
+          else{
+          couleurs(id, vT1, vT2);
+        }
+    }
+  }
+}
 
-      }
+function couleurs(id, vT1, vT2){
+  let T1 = document.getElementById(id + "T1");
+  let T2 = document.getElementById(id + "T2");
+    if(!(isNaN(vT1)) && !(isNaN(vT2))){   //renverra False si un des deux est false renverra true sinon
+        if(vT1 > vT2){
+          T1.setAttribute("class", "vert");
+          T2.setAttribute("class", "rouge");
+        }
+        else if(vT1 < vT2){
+          T2.setAttribute("class", "vert");
+          T1.setAttribute("class", "rouge");
+        }
+        else{
+          T1.setAttribute("class", "vert");
+          T2.setAttribute("class", "vert");
+        }
   }
 }

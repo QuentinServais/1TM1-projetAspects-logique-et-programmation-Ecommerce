@@ -11,7 +11,10 @@
   <a class="accueil" href="index.html">Accueil</a>
   <a class="versus" href="versus.html">Versus</a>
 </nav>
-  <div id="composants">
+  <center>
+    <p id="messageAccueil">Ici construisez virtuellement votre ordinateur, le configurateur vous empêchera de comettre des erreurs de compatibilité.</p>
+  <fieldset id="composants">
+  <legend>Ma configuration:</legend>
   <form onsubmit="compatibilite(); return false;">
   <div id="cpu">
   <label for="selectCpu">Processeurs</label>
@@ -52,7 +55,8 @@
   <div id="PSUBox" class="infoBox"></div><br><br>
   <img id="PSUIm" src="IMG/psu.jpg" style="width:200px">
   </div>
-  </div>
+</fieldset>
+</center>
 <div id="check">
   <br><br>
   <input value="Vérifier la compatibilité" type="submit" class="button"><button class="button" onclick="evaluer();">Evaluer ma configuration</button>
