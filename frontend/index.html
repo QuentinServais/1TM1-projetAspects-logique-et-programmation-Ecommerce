@@ -12,6 +12,7 @@
   <a class="versus" href="versus.html">Versus</a>
 </nav>
   <center>
+  <section id="tout">
     <p id="messageAccueil">Ici construisez virtuellement votre ordinateur, le configurateur vous empêchera de comettre des erreurs de compatibilité.</p>
   <fieldset id="composants">
   <legend>Ma configuration:</legend>
@@ -56,7 +57,7 @@
   <img id="PSUIm" src="IMG/psu.jpg" style="width:200px">
   </div>
 </fieldset>
-</center>
+
 <div id="check">
   <br><br>
   <input value="Vérifier la compatibilité" type="submit" class="button"><button class="button" onclick="evaluer();">Evaluer ma configuration</button>
@@ -64,5 +65,24 @@
 </div>
   <div id="rep"></div>
   <div id="eval"></div>
+</section>
+<section id="panier" hidden>
+  <div id="achat">
+    <table>
+      <legend>Mon panier</legend>
+      <thead id="headP">
+        <tr id="titrePanier">
+          <th>Produit</th>
+          <th>Quantitée</th>
+          <th>Prix</th>
+      </tr>
+      </thead>
+      <tbody id="tbodPanier">
+      </tbody>
+      <tfoot id="tfPanier"></tfoot>
+    </table>
+  </div>
+</section>
+</center>
 </body>
 </html>

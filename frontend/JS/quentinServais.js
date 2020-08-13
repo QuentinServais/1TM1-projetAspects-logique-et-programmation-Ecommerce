@@ -384,7 +384,6 @@ function slctPSU(){
   }
 }
 
-
 function compatibilite(){
   let securite = 100;
   if(cpuChoisis == undefined || cMChoisie == undefined){
@@ -410,6 +409,7 @@ function compatibilite(){
       if(pSUChoisit.watt >= tdpMax){
         document.getElementById("rep").setAttribute("class", "vert");
         document.getElementById("rep").innerHTML = "C'est compatible !";
+        document.getElementById("check").innerHTML += "<button class=button onclick=acheter()>Acheter la configuration</button>"
       }
       else{
         document.getElementById("rep").setAttribute("class", "rouge");
@@ -544,6 +544,29 @@ function couleurs(id, vT1, vT2){
         else{
           T1.setAttribute("class", "vert");
           T2.setAttribute("class", "vert");
-        }
+    }
   }
+}
+
+function acheter(){
+  let config = new CreateObjet(cpuChoisis, cMChoisie, rAMChoisie, gpuChoisit, pSUChoisit);
+  document.getElementById("panier").removeAttribute("hidden");
+  document.getElementById("tout").setAttribute("hidden", "");
+  let strp = "";
+  let prixTotal = 0;
+  console.log(config.cpu.nom);
+    for(let i in config){
+      strp += "<tr><td>" + config[i].nom + "</td><td>" + 1 + "</td><td>" + config[i].prix + "</td></tr>";
+      prixTotal += config[i].prix
+    }
+    document.getElementById("tbodPanier").innerHTML += strp;
+    document.getElementById("tfPanier").innerHTML += "<tr><td class=hide></td><td class=hide></td><td id=prixTotal>" + prixTotal + "</td></tr>";
+}
+
+function CreateObjet(cpu, cm, ram, gpu, psu){
+    this.cpu = cpu; //this == config
+    this.cm = cm;
+    this.ram = ram;
+    this.gpu = gpu;
+    this.psu = psu;
 }
