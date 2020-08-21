@@ -234,7 +234,7 @@ let gPU = [
     points: 10,
     id: "gpu4",
     image: "IMG/gpu4.jpg",
-    tdp: 250,
+    tdp: 300,
     nom: "MSI RTX 2080Ti 11Go"
   },
   {
@@ -385,47 +385,53 @@ function slctPSU(){
 }
 
 function compatibilite(){
+  let tdpMax;
   let securite = 100;
-  if(cpuChoisis == undefined || cMChoisie == undefined){
+  if(cpuChoisis == undefined || cMChoisie == undefined){ //cm ou cpu non def
     document.getElementById("rep").setAttribute("class", "rouge");
     document.getElementById("rep").innerHTML = "Veuillez choisir un processeur et une carte mère";
   }
-  else{
-  if(cpuChoisis.socket == cMChoisie.socket){
-    if(rAMChoisie == undefined){
+  else{ //cpu defined
+    if(cpuChoisis.socket == cMChoisie.socket){ //bon socket
+      if(rAMChoisie == undefined){ //ram non def
       document.getElementById("rep").setAttribute("class", "rouge");
       document.getElementById("rep").innerHTML = "Veuillez choisir un modèle de RAM!";
-    }
-    if(rAMChoisie.type == "DDR4"){
-      if(gpuChoisit == undefined){
-        document.getElementById("rep").setAttribute("class", "rouge");
-        document.getElementById("rep").innerHTML = "Veuillez choisir une carte graphique!";
       }
-      let tdpMax = securite + Number(gpuChoisit.tdp) + Number(cpuChoisis.tdp);
-      if(pSUChoisit == undefined){
+
+      else if(rAMChoisie.type == "DDR4"){ //ram bon type
+          if(gpuChoisit == undefined){ //gpu non def
+          document.getElementById("rep").setAttribute("class", "rouge");
+          document.getElementById("rep").innerHTML = "Veuillez choisir une carte graphique!";
+          return false;
+        }
+        else{
+        tdpMax = securite + Number(gpuChoisit.tdp) + Number(cpuChoisis.tdp);
+        }
+        if(pSUChoisit == undefined){ //psu non def
         document.getElementById("rep").setAttribute("class", "rouge");
         document.getElementById("rep").innerHTML = "Veuillez choisir une alimentation!";
       }
-      if(pSUChoisit.watt >= tdpMax){
+
+        else if(pSUChoisit.watt >= tdpMax){ //psu bon wattage
         document.getElementById("rep").setAttribute("class", "vert");
         document.getElementById("rep").innerHTML = "C'est compatible !";
-        document.getElementById("check").innerHTML += "<button class=button onclick=acheter()>Acheter la configuration</button>"
+        document.getElementById("check").innerHTML = "<input value=Vérifier&nbsp;la&nbsp;compatibilité type=submit class=button><button class=button onclick=evaluer();>Evaluer ma configuration</button><button class=button onclick=acheter()>Acheter la configuration</button>"
       }
-      else{
+        else if(tdpMax != undefined){ //alim mauvais wattage
         document.getElementById("rep").setAttribute("class", "rouge");
         document.getElementById("rep").innerHTML = "Attention Vous avez besoin d'une alimentation d'au moins " + String(tdpMax).bold() + " Watt!";
+        }
       }
-    }
-    else{
+    else{ //ram non compatible
       document.getElementById("rep").setAttribute("class", "rouge");
       document.getElementById("rep").innerHTML = "Attention la RAM n'est pas compatible !";
-    }
+      }
 
   }
-  else{
+  else{ //socket non compatible
     document.getElementById("rep").setAttribute("class", "rouge");
     document.getElementById("rep").innerHTML = "Attention le socket de la carte mère n'est pas compatible avec celui du processeur ! Choisissez une carte mère avec le socket " + cpuChoisis.socket.bold();
-  }
+    }
   }
 }
 
@@ -436,7 +442,6 @@ function evaluer(){
   let config = [cpuChoisis, rAMChoisie, gpuChoisit, pSUChoisit];
   let ameliore = "";
   let min = 10;
-  console.log(arrScore)
   for(let i = 0; i < arrScore.length; i++){
     if(arrScore[i] <= min){
       min = arrScore[i];
@@ -554,7 +559,6 @@ function acheter(){
   document.getElementById("tout").setAttribute("hidden", "");
   let strp = "";
   let prixTotal = 0;
-  console.log(config.cpu.nom);
     for(let i in config){
       strp += "<tr><td>" + config[i].nom + "</td><td>" + 1 + "</td><td>" + config[i].prix + "</td></tr>";
       prixTotal += config[i].prix
@@ -570,3 +574,14 @@ function CreateObjet(cpu, cm, ram, gpu, psu){
     this.gpu = gpu;
     this.psu = psu;
 }
+
+function createTicket(){
+    let frm = document.formAchat;
+    let prenom = frm.firstname.value;
+    let ad = frm.adress.value;
+    let tel = frm.phon.value;
+    document.getElementById("msgClient").innerHTML = "Bonjour " + prenom.bold() + ",<br><br>";
+    document.getElementById("panierLeg").innerHTML = "Résumé de votre commande:";
+    document.getElementById("fieldAch").innerHTML = "Coordonnées de livraison: " + ad.bold();
+    document.getElementById("fieldAch").innerHTML += "<br>Contact: " + tel.bold();
+  }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset=utf-8>
     <title>Power Pc</title>
@@ -11,12 +11,12 @@
   <a class="accueil" href="index.html">Accueil</a>
   <a class="versus" href="versus.html">Versus</a>
 </nav>
-  <center>
+<center>
   <section id="tout">
     <p id="messageAccueil">Ici construisez virtuellement votre ordinateur, le configurateur vous empêchera de comettre des erreurs de compatibilité.</p>
+  <form onsubmit="compatibilite(); return false;">
   <fieldset id="composants">
   <legend>Ma configuration:</legend>
-  <form onsubmit="compatibilite(); return false;">
   <div id="cpu">
   <label for="selectCpu">Processeurs</label>
   <select class="list" id="selectCpu" name="selectCpu" onchange="slctCpu()">
@@ -57,7 +57,6 @@
   <img id="PSUIm" src="IMG/psu.jpg" style="width:200px">
   </div>
 </fieldset>
-
 <div id="check">
   <br><br>
   <input value="Vérifier la compatibilité" type="submit" class="button"><button class="button" onclick="evaluer();">Evaluer ma configuration</button>
@@ -67,20 +66,52 @@
   <div id="eval"></div>
 </section>
 <section id="panier" hidden>
+  <div id="msgClient">
+  </div>
   <div id="achat">
     <table>
-      <legend>Mon panier</legend>
+      <legend id="panierLeg">Mon panier</legend>
       <thead id="headP">
         <tr id="titrePanier">
           <th>Produit</th>
           <th>Quantitée</th>
-          <th>Prix</th>
+          <th>Prix(€)</th>
       </tr>
       </thead>
       <tbody id="tbodPanier">
       </tbody>
       <tfoot id="tfPanier"></tfoot>
     </table>
+  </div><br><br>
+  <div id="formAch">
+    <form name="formAchat" onsubmit="createTicket(); return false;" action="#">
+      <fieldset id="fieldAch">
+        <legend>Mes coordonnées:</legend>
+        <p>
+        <label for="firstname">Prénom:</label>
+        <input id="firstname" name="firstname" placeholder="Antoine" required><br>
+      </p>
+      <p>
+        <label for="lastname">Nom:</label>
+        <input id="lastname" name="lastname" placeholder="Dupont" required>
+      </p>
+      <p>
+        <input type="radio" id="male" name="gndr" value="M">
+        <label for="male">Homme</label>
+        <input type="radio" id="female" name="gndr" value="F">
+        <label for="female">Femme</label>
+      </p>
+      <p>
+        <label for="adress">Adresse:</label>
+        <input id="adress" name="adress" required>
+      </p>
+      <p>
+        <label for="phon">Téléphone:</label>
+        <input id="phon" name="phon" required>
+      </p>
+        <input id="confirmation" type="submit" value="Confirmer mon achat" class="button">
+      </fieldset>
+    </form>
   </div>
 </section>
 </center>

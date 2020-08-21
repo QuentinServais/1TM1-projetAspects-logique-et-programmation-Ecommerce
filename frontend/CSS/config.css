@@ -13,8 +13,25 @@ nav{
     text-align: center;
     font-size: 1.5em;
 }
+section {
+  margin: auto;
+  width: 75%;
+  padding: 10px;
+}
 form{
   text-align: left;
+}
+fieldset{
+  border: solid;
+  border-width: thin;
+}
+#fieldAch{
+    width: 32%;
+    margin: auto;
+    border-style: dotted;
+}
+#confirmation{
+  margin-left: 5em;
 }
 #composants {
   margin-top: 0.5em;
@@ -73,6 +90,16 @@ form{
 }
 #tfPanier{
   border: hidden;
+}
+#msgClient{
+  width: 35%;
+  text-align: left;
+}
+#achat{
+  width: 50%;
+}
+#panierLeg{
+  margin-left: -15em;
 }
 .button{
   background-color: black;
