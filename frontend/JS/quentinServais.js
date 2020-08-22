@@ -322,7 +322,10 @@ let cMChoisie;
 let rAMChoisie;
 let gpuChoisit;//Choisi
 let pSUChoisit;//Choisie
-
+/**
+  * Sélectionne et affiche l'objet sélectionné de l'array cPU
+  * @author quentin servais
+*/
 function slctCpu(){
   cpuChoisis = document.getElementById("selectCpu").value;
   for(let i = 0; i < cPU.length; i++){
@@ -334,7 +337,10 @@ function slctCpu(){
     }
   }
 }
-
+/**
+  * Sélectionne et affiche l'objet sélectionné de l'array carteMere
+  * @author quentin servais
+*/
 function slctCM(){
   cMChoisie = document.getElementById("selectCM").value;
   for(let i = 0; i < carteMere.length; i++){
@@ -346,7 +352,10 @@ function slctCM(){
     }
   }
 }
-
+/**
+  * Sélectionne et affiche l'objet sélectionné de l'array rAM
+  * @author quentin servais
+*/
 function slctRAM(){
   rAMChoisie = document.getElementById("selectRAM").value;
   for(let i = 0; i < rAM.length; i++){
@@ -358,7 +367,10 @@ function slctRAM(){
     }
   }
 }
-
+/**
+  * Sélectionne et affiche l'objet sélectionné de l'array gPU
+  * @author quentin servais
+*/
 function slctGPU(){
   gpuChoisit = document.getElementById("selectGPU").value;
   for(let i = 0; i < gPU.length; i++){
@@ -367,11 +379,13 @@ function slctGPU(){
       let gpuData = Object.keys(gpuChoisit);
       document.getElementById("GPUIm").src= gpuChoisit.image;
       document.getElementById("GPUBox").innerHTML = "Vous avez choisi: <br>" + gpuData[0].bold() + ": " + gpuChoisit.marque + "<br>" + gpuData[1].bold() + ": " + gpuChoisit.model + "<br>" + gpuData[4].bold() + ": " + gpuChoisit.fréquence + "MHz" + "<br>" + gpuData[5].bold() + ": " + gpuChoisit.memoire + "Go <br>" + gpuData[9].bold() + ": " + gpuChoisit.prix + "€";
-
     }
   }
 }
-
+/**
+  * Sélectionne et affiche l'objet sélectionné de l'array pSU
+  * @author quentin servais
+*/
 function slctPSU(){
   pSUChoisit = document.getElementById("selectPSU").value;
   for(let i = 0; i < pSU.length; i++){
@@ -383,7 +397,10 @@ function slctPSU(){
     }
   }
 }
-
+/**
+  * cette fonction vérifie si les composants sont compatible entre eux ou non
+  * @author quentin servais
+*/
 function compatibilite(){
   let tdpMax;
   let securite = 100;
@@ -434,7 +451,10 @@ function compatibilite(){
     }
   }
 }
-
+/**
+  * Evalue le score total de la configuration choisie par l'utilisateur
+  * @author quentin servais
+*/
 function evaluer(){
   let score = (cpuChoisis.points + rAMChoisie.points + gpuChoisit.points + pSUChoisit.points)/4;
   score = score.toFixed(2);
@@ -455,7 +475,13 @@ function evaluer(){
   document.getElementById("eval").innerHTML = "Votre configuration obtient le score de " + score + "/10! Vous pourriez améliorez : " + ameliore;
   }
 }
-
+/**
+  * créé les différentes options des select du configurateur et du versus
+  * @author quentin servais
+  *
+  *@param {array} arr:array d'objet qui sera parcouru
+  *@param {string} id:id de la page html ou l'on renvoie les données
+*/
 function createOption(id, arr){
   let str='<option value="" selected disabled hidden> -- Choisissez une option -- </option>';
   for(let i = 0; i < arr.length; i++){
@@ -463,7 +489,10 @@ function createOption(id, arr){
   }
   document.getElementById(id).innerHTML = str;
 }
-
+/**
+  * Initialise la page index.html
+  * @author quentin servais
+*/
 function initialisation(){
   cPU.sort(trierMarque);
   carteMere.sort(trierMarque);
@@ -476,13 +505,22 @@ function initialisation(){
   createOption("selectGPU", gPU);
   createOption("selectPSU", pSU);
 }
-
+/**
+  * Initialise la page versus.html
+  * @author quentin servais
+*/
 function initialisationVersus(){
   gPU.sort(trierMarque);
   createOption("slctVersus1", gPU);
   createOption("slctVersus2", gPU);
 }
-
+/**
+  * fonction comparative par ordre alphabétique
+  * @author quentin servais
+  *
+  * @param {object} a:un objet d'un array
+  * @param {object} b:un autre objet du même array
+*/
 function trierMarque(a, b){
   if(a.marque > b.marque){
     return 1;
@@ -494,7 +532,13 @@ function trierMarque(a, b){
     return 0;
   }
 }
-
+/**
+  * cette fonction remplit le tableau de la page versus.html
+  * @author quentin servais
+  *
+  * @param {string} slct:value du select
+  * @param {string} tabl:T1 ou T2 pour l'id de l'emplacement
+*/
 function versus(slct, tabl){
   let gpuId = slct.value
   for(let i = 0; i < gPU.length; i++){
@@ -513,7 +557,10 @@ function versus(slct, tabl){
   }
   comparer();
 }
-
+/**
+  * fonction comparative entre les deux tableaux de la page versus.html
+  * @author quentin servais
+*/
 function comparer(){
   let toCompare = ["vFrequence", "vVRAM", "vBus", "vTflops", "vTDP"];
   let tdList = document.querySelectorAll("tr[id]");
@@ -533,7 +580,14 @@ function comparer(){
     }
   }
 }
-
+/**
+  * fonction de mise en couleurs
+  * @author quentin servais
+  *
+  * @param {string} id:id de la page html ou iront les données
+  * @param {number} vT1:un number d'un objet
+  * @param {number} vT2:un number d'un autre objet
+*/
 function couleurs(id, vT1, vT2){
   let T1 = document.getElementById(id + "T1");
   let T2 = document.getElementById(id + "T2");
@@ -552,7 +606,10 @@ function couleurs(id, vT1, vT2){
     }
   }
 }
-
+/**
+  * création du panier
+  * @author quentin servais
+*/
 function acheter(){
   let config = new CreateObjet(cpuChoisis, cMChoisie, rAMChoisie, gpuChoisit, pSUChoisit);
   document.getElementById("panier").removeAttribute("hidden");
@@ -566,7 +623,16 @@ function acheter(){
     document.getElementById("tbodPanier").innerHTML += strp;
     document.getElementById("tfPanier").innerHTML += "<tr><td class=hide></td><td class=hide></td><td id=prixTotal>" + prixTotal + "</td></tr>";
 }
-
+/**
+  * fonction constructeur des éléments sélectionnés
+  * @author quentin servais
+  *
+  * @param {objet} cpu:contiendra le cpu sélectionné
+  * @param {objet} cm:contiendra la carte mère sélectionnée
+  * @param {objet} ram:contiendra la ram sélectionnée
+  * @param {objet} gpu:contiendra le gpu sélectionné
+  * @param {objet} psu:contiendra le psu sélectionné
+*/
 function CreateObjet(cpu, cm, ram, gpu, psu){
     this.cpu = cpu; //this == config
     this.cm = cm;
@@ -574,7 +640,10 @@ function CreateObjet(cpu, cm, ram, gpu, psu){
     this.gpu = gpu;
     this.psu = psu;
 }
-
+/**
+  * création d'un ticket des éléments sélectionné dans le configurateur
+  * @author quentin servais
+*/
 function createTicket(){
     let frm = document.formAchat;
     let prenom = frm.firstname.value;
@@ -584,4 +653,5 @@ function createTicket(){
     document.getElementById("panierLeg").innerHTML = "Résumé de votre commande:";
     document.getElementById("fieldAch").innerHTML = "Coordonnées de livraison: " + ad.bold();
     document.getElementById("fieldAch").innerHTML += "<br>Contact: " + tel.bold();
+    document.getElementById("msgOut").innerHTML += "Merci pour votre commande et à bientôt!!"
   }

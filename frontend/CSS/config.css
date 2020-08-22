@@ -101,6 +101,10 @@ fieldset{
 #panierLeg{
   margin-left: -15em;
 }
+#msgOut{
+  text-align: center;
+  font-size: 1.5em;
+}
 .button{
   background-color: black;
   border: none;
