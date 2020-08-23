@@ -120,7 +120,7 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
     - **Format de réponse** : Retourne un nouvel objet.
     - **Endpoint** : Céer le nouvel objet config pour faciliter la création du panier.
     
-  - *createTicket
+  - *createTicket*
   
     - **Paramètres** : Aucun
     - **Format de réponse** : Renvoie un string avec certaines données du formulaire.
