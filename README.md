@@ -27,8 +27,8 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
   - *slctCpu*
   
     - **Paramètres** : Aucun
-    - **Format de réponse** : renvoie un string dans la page html avec les données du cpu choisi.
-    - **Endpoint** : sélectionne et affiche les données du cpu que l'utilisateur à choisit avec le select.
+    - **Format de réponse** : Renvoie un string dans la page html avec les données du cpu choisi.
+    - **Endpoint** : Sélectionne et affiche les données du cpu que l'utilisateur à choisit avec le select.
     
   - *slctCM*
   
