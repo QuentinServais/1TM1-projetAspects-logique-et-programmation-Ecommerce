@@ -1,120 +1,120 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset=utf-8>
-    <title>Power Pc</title>
-    <script src="JS/quentinServais.js"></script>
-    <link rel="stylesheet" type="text/css" href="CSS/config.css">
+  <meta charset=utf-8>
+  <title>Power Pc</title>
+  <script src="JS/quentinServais.js"></script>
+  <link rel="stylesheet" type="text/css" href="CSS/config.css">
 </head>
 <body onload="initialisation();">
-<nav>
-  <a class="accueil" href="index.html">Accueil</a>
-  <a class="versus" href="versus.html">Versus</a>
-</nav>
-<center>
-  <section id="tout">
-    <p id="messageAccueil">Ici construisez virtuellement votre ordinateur, le configurateur vous empêchera de comettre des erreurs de compatibilité.</p>
-  <form onsubmit="compatibilite(); return false;">
-  <fieldset id="composants">
-  <legend>Ma configuration:</legend>
-  <div id="cpu">
-  <label for="selectCpu">Processeurs</label>
-  <select class="list" id="selectCpu" name="selectCpu" onchange="slctCpu()">
-  </select>
-  <div id="cpuBox" class="infoBox"></div><br><br>
-  <img id="cpuIm" src="IMG/cpu.jpg" style="width:200px">
-  </div>
-  <br>
-  <div id="cm">
-  <label for="selectCM">Carte Mère</label>
-  <select class="list" id="selectCM" name="selectCM" onchange="slctCM()">
-  </select>
-  <div id="cMBox" class="infoBox"></div><br><br>
-  <img id="cMIm" src="IMG/cm.jpg" style="width:200px">
-  </div>
-  <br>
-  <div id="ram">
-  <label for="selectRAM">RAM</label>
-  <select class="list" id="selectRAM" name="selectRAM" onchange="slctRAM()">
-  </select>
-  <div id="rAMBox" class="infoBox"></div><br><br>
-  <img id="rAMIm" src="IMG/ram.jpg" style="width:200px">
-  </div>
-  <br>
-  <div id="gpu">
-  <label for="selectGPU">Carte Graphique</label>
-  <select class="list" id="selectGPU" name="selectGPU" onchange="slctGPU()">
-  </select>
-  <div id="GPUBox" class="infoBox"></div><br><br>
-  <img id="GPUIm" src="IMG/gpu.jpg" style="width:200px">
-  </div>
-  <br>
-  <div id="psu">
-  <label for="selectPSU">Alimentation</label>
-  <select class="list" id="selectPSU" name="selectPSU" onchange="slctPSU()">
-  </select>
-  <div id="PSUBox" class="infoBox"></div><br><br>
-  <img id="PSUIm" src="IMG/psu.jpg" style="width:200px">
-  </div>
-</fieldset>
-<div id="check">
-  <br><br>
-  <input value="Vérifier la compatibilité" type="submit" class="button"><button class="button" onclick="evaluer();">Evaluer ma configuration</button>
-</form>
-</div>
-  <div id="rep"></div>
-  <div id="eval"></div>
-</section>
-<section id="panier" hidden>
-  <div id="msgClient">
-  </div>
-  <div id="achat">
-    <table>
-      <legend id="panierLeg">Mon panier</legend>
-      <thead id="headP">
-        <tr id="titrePanier">
-          <th>Produit</th>
-          <th>Quantitée</th>
-          <th>Prix(€)</th>
-      </tr>
-      </thead>
-      <tbody id="tbodPanier">
-      </tbody>
-      <tfoot id="tfPanier"></tfoot>
-    </table>
-  </div><br><br>
-  <div id="formAch">
-    <form name="formAchat" onsubmit="createTicket(this); return false;" action="#">
-      <fieldset id="fieldAch">
-        <legend>Mes coordonnées:</legend>
-        <p>
-        <label for="firstname">Prénom:</label>
-        <input id="firstname" name="firstname" placeholder="Antoine" required><br>
-      </p>
-      <p>
-        <label for="lastname">Nom:</label>
-        <input id="lastname" name="lastname" placeholder="Dupont" required>
-      </p>
-      <p>
-        <input type="radio" id="male" name="gndr" value="M" required>
-        <label for="male">Homme</label>
-        <input type="radio" id="female" name="gndr" value="F" required>
-        <label for="female">Femme</label>
-      </p>
-      <p>
-        <label for="adress">Adresse:</label>
-        <input id="adress" name="adress" placeholder="16, rue des Lauriers, Arlon" required>
-      </p>
-      <p>
-        <label for="phon">Téléphone:</label>
-        <input id="phon" name="phon" required>
-      </p>
-        <input id="confirmation" type="submit" value="Confirmer mon achat" class="button">
-      </fieldset>
-    </form>
-    <p id="msgOut"></p>
-  </div>
-</section>
-</center>
+  <nav>
+    <a class="accueil" href="index.html">Accueil</a>
+    <a class="versus" href="versus.html">Versus</a>
+  </nav>
+  <center>
+    <section id="tout">
+      <p id="messageAccueil">Ici construisez virtuellement votre ordinateur, le configurateur vous empêchera de comettre des erreurs de compatibilité.</p>
+      <form onsubmit="compatibilite(); return false;">
+        <fieldset id="composants">
+          <legend>Ma configuration:</legend>
+          <div id="cpu">
+            <label for="selectCpu">Processeurs</label>
+            <select class="list" id="selectCpu" name="selectCpu" onchange="slctCpu()">
+            </select>
+            <div id="cpuBox" class="infoBox"></div><br><br>
+            <img id="cpuIm" src="IMG/cpu.jpg" style="width:200px">
+          </div>
+          <br>
+          <div id="cm">
+            <label for="selectCM">Carte Mère</label>
+            <select class="list" id="selectCM" name="selectCM" onchange="slctCM()">
+            </select>
+            <div id="cMBox" class="infoBox"></div><br><br>
+            <img id="cMIm" src="IMG/cm.jpg" style="width:200px">
+          </div>
+          <br>
+          <div id="ram">
+            <label for="selectRAM">RAM</label>
+            <select class="list" id="selectRAM" name="selectRAM" onchange="slctRAM()">
+            </select>
+            <div id="rAMBox" class="infoBox"></div><br><br>
+            <img id="rAMIm" src="IMG/ram.jpg" style="width:200px">
+          </div>
+          <br>
+          <div id="gpu">
+            <label for="selectGPU">Carte Graphique</label>
+            <select class="list" id="selectGPU" name="selectGPU" onchange="slctGPU()">
+            </select>
+            <div id="GPUBox" class="infoBox"></div><br><br>
+            <img id="GPUIm" src="IMG/gpu.jpg" style="width:200px">
+          </div>
+          <br>
+          <div id="psu">
+            <label for="selectPSU">Alimentation</label>
+            <select class="list" id="selectPSU" name="selectPSU" onchange="slctPSU()">
+            </select>
+            <div id="PSUBox" class="infoBox"></div><br><br>
+            <img id="PSUIm" src="IMG/psu.jpg" style="width:200px">
+          </div>
+        </fieldset>
+        <div id="check">
+          <br><br>
+          <input value="Vérifier la compatibilité" type="submit" class="button"><button class="button" onclick="evaluer();">Evaluer ma configuration</button>
+        </form>
+      </div>
+      <div id="rep"></div>
+      <div id="eval"></div>
+    </section>
+    <section id="panier" hidden>
+      <div id="msgClient">
+      </div>
+      <div id="achat">
+        <table>
+          <legend id="panierLeg">Mon panier</legend>
+          <thead id="headP">
+            <tr id="titrePanier">
+              <th>Produit</th>
+              <th>Quantitée</th>
+              <th>Prix(€)</th>
+            </tr>
+          </thead>
+          <tbody id="tbodPanier">
+          </tbody>
+          <tfoot id="tfPanier"></tfoot>
+        </table>
+      </div><br><br>
+      <div id="formAch">
+        <form name="formAchat" onsubmit="createTicket(this); return false;" action="#">
+          <fieldset id="fieldAch">
+            <legend>Mes coordonnées:</legend>
+            <p>
+              <label for="firstname">Prénom:</label>
+              <input id="firstname" name="firstname" placeholder="Antoine" required><br>
+            </p>
+            <p>
+              <label for="lastname">Nom:</label>
+              <input id="lastname" name="lastname" placeholder="Dupont" required>
+            </p>
+            <p>
+              <input type="radio" id="male" name="gndr" value="M" required>
+              <label for="male">Homme</label>
+              <input type="radio" id="female" name="gndr" value="F" required>
+              <label for="female">Femme</label>
+            </p>
+            <p>
+              <label for="adress">Adresse:</label>
+              <input id="adress" name="adress" placeholder="16, rue des Lauriers, Arlon" required>
+            </p>
+            <p>
+              <label for="phon">Téléphone:</label>
+              <input id="phon" name="phon" required>
+            </p>
+            <input id="confirmation" type="submit" value="Confirmer mon achat" class="button">
+          </fieldset>
+        </form>
+        <p id="msgOut"></p>
+      </div>
+    </section>
+  </center>
 </body>
 </html>
