@@ -92,36 +92,36 @@ La liste des aspects techniques qu'il faut implémenter pour mettre en place le 
     
   - *versus*
   
-    - **Paramètres** : Prend en paramètre **slct** (value de l'option du select) et **tabl** qui correspond aux id à gauche et à droite du tableau.
+    - **Paramètres** : Prend en paramètre **slct** qui est un objet et **tabl** qui est un string correspondant à la gauche et à la droite du tableau.
     - **Format de réponse** : Renvoie un string dans le tableau avec les données et fait appel à la fonction comparer.
     - **Endpoint** : Remplir le tableau versus avec les données choisies par l'utilisateur.
     
   - *comparer*
   
     - **Paramètres** : Aucun
-    - **Format de réponse** : Fait appel à la fonction couleurs.
-    - **Endpoint** : Définir les éléments à comparer du tableau.
+    - **Format de réponse** : Fait appel à la fonction **couleurs**.
+    - **Endpoint** : Définir les valeurs des objets à comparer.
     
   - *couleur*
   
-    - **Paramètres** : Prend en paramètre un **id** ou iront les données, **vT1** un number à comparer avec **vT2** un autre number
-    - **Format de réponse** : Renvoie un Boolean.
+    - **Paramètres** : Prend en paramètre un **id** ou iront les données, **vT1** un number à comparer avec **vT2** l'autre number à comparer.
+    - **Format de réponse** : Modification d'un attribut html.
     - **Endpoint** : Comparer visuellement à l'aide de vert et de rouge.
     
   - *acheter*
   
     - **Paramètres** : Aucun
-    - **Format de réponse** : Fait appel au constructeur CreateObjet qui va définir une configuration retourne un string.
+    - **Format de réponse** : Fait appel au constructeur CreateObjet qui va définir une configuration, il retournera un string.
     - **Endpoint** : Créer un panier sous forme de tableau.
     
   - *CreateObjet*
   
-    - **Paramètres** : cpu, cm, ram, gpu, psu
+    - **Paramètres** : cpu, cm, ram, gpu, psu sont chacun des objets.
     - **Format de réponse** : Retourne un nouvel objet.
     - **Endpoint** : Céer le nouvel objet config pour faciliter la création du panier.
     
   - *createTicket*
   
-    - **Paramètres** : Aucun
+    - **Paramètres** : Prend un paramètre **frm**
     - **Format de réponse** : Renvoie un string avec certaines données du formulaire.
     - **Endpoint** : Créer un ticket client après la confirmation d'achat.
