@@ -84,7 +84,7 @@
     </table>
   </div><br><br>
   <div id="formAch">
-    <form name="formAchat" onsubmit="createTicket(); return false;" action="#">
+    <form name="formAchat" onsubmit="createTicket(this); return false;" action="#">
       <fieldset id="fieldAch">
         <legend>Mes coordonnées:</legend>
         <p>
@@ -96,9 +96,9 @@
         <input id="lastname" name="lastname" placeholder="Dupont" required>
       </p>
       <p>
-        <input type="radio" id="male" name="gndr" value="M">
+        <input type="radio" id="male" name="gndr" value="M" required>
         <label for="male">Homme</label>
-        <input type="radio" id="female" name="gndr" value="F">
+        <input type="radio" id="female" name="gndr" value="F" required>
         <label for="female">Femme</label>
       </p>
       <p>

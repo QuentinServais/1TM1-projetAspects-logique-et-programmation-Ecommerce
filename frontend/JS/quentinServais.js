@@ -400,6 +400,7 @@ function slctPSU(){
 /**
   * cette fonction vérifie si les composants sont compatible entre eux ou non
   * @author quentin servais
+  * @return {Boolean} renvoie false lorsque le gpuChoisit == undefined
 */
 function compatibilite(){
   let tdpMax;
@@ -432,7 +433,7 @@ function compatibilite(){
         else if(pSUChoisit.watt >= tdpMax){ //psu bon wattage
         document.getElementById("rep").setAttribute("class", "vert");
         document.getElementById("rep").innerHTML = "C'est compatible !";
-        document.getElementById("check").innerHTML = "<input value=Vérifier&nbsp;la&nbsp;compatibilité type=submit class=button><button class=button onclick=evaluer();>Evaluer ma configuration</button><button class=button onclick=acheter()>Acheter la configuration</button>"
+        document.getElementById("check").innerHTML = "<input value=Vérifier&nbsp;la&nbsp;compatibilité type=submit class=button><button class=button onclick=evaluer();>Evaluer ma configuration</button><button class=button onclick=acheter()>Acheter la configuration</button>";
       }
         else if(tdpMax != undefined){ //alim mauvais wattage
         document.getElementById("rep").setAttribute("class", "rouge");
@@ -465,7 +466,7 @@ function evaluer(){
   for(let i = 0; i < arrScore.length; i++){
     if(arrScore[i] <= min){
       min = arrScore[i];
-      ameliore = config[i].marque + " " + config[i].model
+      ameliore = config[i].marque + " " + config[i].model;
     }
   }
   if(score == 10){
@@ -480,7 +481,7 @@ function evaluer(){
   * @author quentin servais
   *
   *@param {array} arr:array d'objet qui sera parcouru
-  *@param {string} id:id de la page html ou l'on renvoie les données
+  *@param {string} id:id de la balise html ou l'on renvoie les données
 */
 function createOption(id, arr){
   let str='<option value="" selected disabled hidden> -- Choisissez une option -- </option>';
@@ -520,6 +521,10 @@ function initialisationVersus(){
   *
   * @param {object} a:un objet d'un array
   * @param {object} b:un autre objet du même array
+  *
+  * @return {number} 1
+  * @return {number} -1
+  * @return {number} 0
 */
 function trierMarque(a, b){
   if(a.marque > b.marque){
@@ -536,11 +541,11 @@ function trierMarque(a, b){
   * cette fonction remplit le tableau de la page versus.html
   * @author quentin servais
   *
-  * @param {string} slct:value du select
+  * @param {object} slct:référence a l'objet html
   * @param {string} tabl:T1 ou T2 pour l'id de l'emplacement
 */
 function versus(slct, tabl){
-  let gpuId = slct.value
+  let gpuId = slct.value;
   for(let i = 0; i < gPU.length; i++){
     if(gpuId == gPU[i].id){
       document.getElementById("vImage" + tabl).src = gPU[i].image;
@@ -558,7 +563,7 @@ function versus(slct, tabl){
   comparer();
 }
 /**
-  * fonction comparative entre les deux tableaux de la page versus.html
+  * fonction comparative entre 2 valeurs d'un même tableau
   * @author quentin servais
 */
 function comparer(){
@@ -566,7 +571,7 @@ function comparer(){
   let tdList = document.querySelectorAll("tr[id]");
   for(let i = 0; i < tdList.length; i++){
       if(toCompare.indexOf(tdList[i].id) != -1){ //indexOf renverra -1 si il ne trouve pas dans toCompare l'id de tdList[i] il renverra son index sinon
-          let id = tdList[i].id
+          let id = tdList[i].id;
           let vT1 = parseFloat(document.getElementById(id + "T1").innerText);
           let vT2 = parseFloat(document.getElementById(id + "T2").innerText);
           if(id == "vTDP"){
@@ -581,12 +586,12 @@ function comparer(){
   }
 }
 /**
-  * fonction de mise en couleurs
+  * fonction de mise en couleurs des cases du tableau
   * @author quentin servais
   *
-  * @param {string} id:id de la page html ou iront les données
-  * @param {number} vT1:un number d'un objet
-  * @param {number} vT2:un number d'un autre objet
+  * @param {string} id:id de la balise html
+  * @param {number} vT1: valeur 1 à comparer
+  * @param {number} vT2: valeur 2 à comparer
 */
 function couleurs(id, vT1, vT2){
   let T1 = document.getElementById(id + "T1");
@@ -618,7 +623,7 @@ function acheter(){
   let prixTotal = 0;
     for(let i in config){
       strp += "<tr><td>" + config[i].nom + "</td><td>" + 1 + "</td><td>" + config[i].prix + "</td></tr>";
-      prixTotal += config[i].prix
+      prixTotal += config[i].prix;
     }
     document.getElementById("tbodPanier").innerHTML += strp;
     document.getElementById("tfPanier").innerHTML += "<tr><td class=hide></td><td class=hide></td><td id=prixTotal>" + prixTotal + "</td></tr>";
@@ -643,9 +648,10 @@ function CreateObjet(cpu, cm, ram, gpu, psu){
 /**
   * création d'un ticket des éléments sélectionné dans le configurateur
   * @author quentin servais
+  *
+  * @param {object} frm:autoréférencement vers les formulaire
 */
-function createTicket(){
-    let frm = document.formAchat;
+function createTicket(frm){
     let prenom = frm.firstname.value;
     let ad = frm.adress.value;
     let tel = frm.phon.value;
@@ -653,5 +659,5 @@ function createTicket(){
     document.getElementById("panierLeg").innerHTML = "Résumé de votre commande:";
     document.getElementById("fieldAch").innerHTML = "Coordonnées de livraison: " + ad.bold();
     document.getElementById("fieldAch").innerHTML += "<br>Contact: " + tel.bold();
-    document.getElementById("msgOut").innerHTML += "Merci pour votre commande et à bientôt!!"
+    document.getElementById("msgOut").innerHTML += "Merci pour votre commande et à bientôt!!";
   }
